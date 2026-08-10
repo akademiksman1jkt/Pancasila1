@@ -61,7 +61,7 @@
             </div>
             <div>
                 <h1 class="font-game text-sm md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Telur Pancasila</h1>
-                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal Acak)</p>
+                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal + Timer Inaktivitas)</p>
             </div>
         </div>
 
@@ -110,9 +110,9 @@
         <canvas id="gameCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
 
         <div class="pointer-events-none absolute inset-x-0 top-2 flex flex-col items-center justify-center px-2 z-10">
-            <div id="banner-bomb" class="px-3.5 py-1.5 rounded-full bg-red-600/95 border-2 border-yellow-400 text-white text-[11px] md:text-sm font-black flex items-center gap-2 shadow-2xl bounce-soft transition-all duration-300 hidden">
+            <div id="banner-bomb" class="px-3.5 py-1.5 rounded-full bg-red-600/95 border-2 border-yellow-400 text-white text-[11px] md:text-sm font-black flex items-center gap-2 shadow-2xl bounce-soft transition-all duration-300">
                 <i class="fa-solid fa-stopwatch text-yellow-300 text-base animate-spin"></i>
-                <span>WAKTU TELUR <span id="active-egg-tag" class="text-yellow-300">#1</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">15.0s</span></span>
+                <span><span id="bomb-status-label" class="text-yellow-200">WAKTU PILIH TELUR</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
             </div>
         </div>
     </main>
@@ -129,7 +129,7 @@
             </div>
 
             <h1 class="font-game text-xl md:text-3xl text-yellow-300 mb-0.5 font-bold tracking-wide">Petualangan Telur Pancasila</h1>
-            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS Super (75 Kasus Acak)</p>
+            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS (75 Soal Acak)</p>
 
             <div class="w-full bg-indigo-900/80 p-3.5 rounded-2xl border border-indigo-700/60 mb-3 text-left">
                 <div class="mb-2.5">
@@ -152,11 +152,11 @@
             </div>
 
             <p class="text-xs text-indigo-200 mb-3 leading-relaxed px-1">
-                Sentuh dan tahan <span class="text-yellow-300 font-bold">Telur Soal</span> untuk membaca kasus acak (Waktu: <span class="text-red-400 font-bold">15 Detik</span>/Soal), lalu geser ke <span class="text-yellow-300 font-bold">Keranjang Sila</span> yang tepat!
+                ⚠️ <span class="text-yellow-300 font-bold">Aturan Baru:</span> Kamu punya waktu <span class="text-red-400 font-bold">10 Detik</span> untuk segera memilih telur. Jika diam saja, bom akan meledak! Setelah telur dipecahkan/dipegang, selesaikan analisis dalam <span class="text-yellow-300 font-bold">15 Detik</span>.
             </p>
 
             <button id="btn-start-game" class="w-full py-3 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 text-indigo-950 font-bold font-game text-base md:text-lg rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-play text-lg"></i> MULAI PERMAINAN (SOAL ACAK)
+                <i class="fa-solid fa-play text-lg"></i> MULAI PERMAINAN
             </button>
         </div>
     </div>
@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">🐂</span>
+                    <span class="text-2xl">i🐂</span>
                     <div><strong class="text-amber-300 block font-game">Sila 4: Kerakyatan yang Dipimpin...</strong>Musyawarah deliberatif, penolakan tirani, anti-politik uang, & partisipasi politik sah.</div>
                 </div>
 
@@ -496,7 +496,7 @@
             .catch(err => console.error('Gagal mengirim data:', err));
         }
 
-        // 75 SKENARIO HOTS PANCASILA (KUNCI SILA DIAJAK / UNSTRUCTURED)
+        // 75 SKENARIO HOTS PANCASILA (ACAK SILA)
         const SCENARIOS = [
             { id: 1, text: "Seorang ilmuwan bioteknologi menemukan teknologi rekayasa genetika modern yang berpotensi memicu perdebatan moral agama. Ia memutuskan menyelenggarakan forum dialog teologis inklusif guna menjamin etika kemanusiaan yang selaras dengan nilai keimanan.", sila: 1 },
             { id: 2, text: "Memperjuangkan hak perlindungan data pribadi dan privasi bagi pengungsi lintas negara sebagai wujud pengakuan terhadap martabat manusia universal.", sila: 2 },
@@ -598,7 +598,9 @@
         let isGameOver = false;
         let isGameStarted = false;
 
-        const EGG_TIMER_MAX = 15.0; // Waktu Pengerjaan per Soal
+        const EGG_TIMER_MAX = 15.0;  // Waktu baca & geser telur
+        const IDLE_TIMER_MAX = 10.0; // Waktu tunggu memilih telur (Inaktivitas)
+        let idleTimer = IDLE_TIMER_MAX;
 
         const pointer = { x: 0, y: 0, isDown: false, justPressed: false };
 
@@ -812,18 +814,20 @@
                     if (dist < egg.radius * 1.8) {
                         draggedItem = { type: 'egg', index: idx };
                         activeEggIdx = idx;
+                        idleTimer = IDLE_TIMER_MAX; // Reset idle timer saat telur dipilih
                         audio.playPop();
                     }
                 });
                 pointer.justPressed = false;
             }
 
-            // PER-EGG TIMER UPDATE (Timer 15s per telur aktif)
             const bombBanner = document.getElementById('banner-bomb');
             const bombText = document.getElementById('bomb-timer-text');
-            const activeEggTag = document.getElementById('active-egg-tag');
+            const bombLabel = document.getElementById('bomb-status-label');
 
+            // SISTEM TIMER GANDA (Inaktivitas vs Telur Aktif)
             if (activeEggIdx !== -1 && eggs[activeEggIdx] && eggs[activeEggIdx].active) {
+                // Telur sedang Dipecahkan / Dipegang (15 Detik)
                 const currentEgg = eggs[activeEggIdx];
                 currentEgg.timer -= dt;
 
@@ -834,14 +838,12 @@
                 lastTimerSec = currentSec;
 
                 if (bombBanner) {
-                    bombBanner.classList.remove('hidden');
-                    if (activeEggTag) activeEggTag.innerText = `#${currentEgg.scenario.id}`;
+                    if (bombLabel) bombLabel.innerText = `ANALISIS SOAL #${currentEgg.scenario.id}`;
                     if (bombText) bombText.innerText = `${Math.max(0, currentEgg.timer).toFixed(1)}s`;
                 }
 
-                // Jika timer telur aktif habis!
                 if (currentEgg.timer <= 0) {
-                    currentEgg.active = false; // Telur hancur
+                    currentEgg.active = false;
                     hp -= 15;
                     combo = 1;
                     audio.playExplosion();
@@ -851,6 +853,7 @@
                     
                     draggedItem = null;
                     activeEggIdx = -1;
+                    idleTimer = IDLE_TIMER_MAX;
                     updateHUD();
 
                     if (eggs.every(e => !e.active)) {
@@ -858,7 +861,30 @@
                     }
                 }
             } else {
-                if (bombBanner) bombBanner.classList.add('hidden');
+                // Siswa Diam Saja / Tidak Memilih Telur (Inaktivitas 10 Detik)
+                idleTimer -= dt;
+                const currentSec = Math.floor(idleTimer);
+                if (currentSec !== lastTimerSec && currentSec <= 3 && currentSec >= 0) {
+                    audio.playTick();
+                }
+                lastTimerSec = currentSec;
+
+                if (bombBanner) {
+                    if (bombLabel) bombLabel.innerText = "SEGERA PILIH TELUR";
+                    if (bombText) bombText.innerText = `${Math.max(0, idleTimer).toFixed(1)}s`;
+                }
+
+                if (idleTimer <= 0) {
+                    hp -= 10;
+                    combo = 1;
+                    audio.playExplosion();
+                    triggerScreenShake();
+                    spawnBurst(width / 2, height / 2, '#EF4444', 30);
+                    addFloatText(`💣 LALAI MEMILIH TELUR! (-10% HP)`, width / 2, height / 2 - 30, '#DC2626');
+
+                    idleTimer = IDLE_TIMER_MAX;
+                    updateHUD();
+                }
             }
 
             // Event Lepas Drag
@@ -896,6 +922,7 @@
                 }
                 draggedItem = null;
                 activeEggIdx = -1;
+                idleTimer = IDLE_TIMER_MAX; // Reset idle timer saat telur dilepas
             }
 
             if (pointer.isDown && draggedItem) {
@@ -1103,6 +1130,7 @@
         function resetGame() {
             hp = 100; score = 0; combo = 1; casesSolved = 0;
             isGameOver = false; activeEggIdx = -1; draggedItem = null;
+            idleTimer = IDLE_TIMER_MAX;
 
             document.getElementById('modal-end').classList.add('hidden');
             const statusEl = document.getElementById('end-status');
@@ -1168,6 +1196,7 @@
             audio.startBGM();
             document.getElementById('modal-start').classList.add('hidden');
             isGameStarted = true;
+            idleTimer = IDLE_TIMER_MAX;
         });
 
         document.getElementById('btn-fullscreen').addEventListener('click', () => {
