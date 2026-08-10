@@ -61,7 +61,7 @@
             </div>
             <div>
                 <h1 class="font-game text-sm md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Telur Pancasila</h1>
-                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal Kompleks)</p>
+                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal Acak)</p>
             </div>
         </div>
 
@@ -112,7 +112,7 @@
         <div class="pointer-events-none absolute inset-x-0 top-2 flex flex-col items-center justify-center px-2 z-10">
             <div id="banner-bomb" class="px-3.5 py-1.5 rounded-full bg-red-600/95 border-2 border-yellow-400 text-white text-[11px] md:text-sm font-black flex items-center gap-2 shadow-2xl bounce-soft transition-all duration-300 hidden">
                 <i class="fa-solid fa-stopwatch text-yellow-300 text-base animate-spin"></i>
-                <span>WAKTU CEBAT TELUR <span id="active-egg-tag" class="text-yellow-300">#1</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">15.0s</span></span>
+                <span>WAKTU TELUR <span id="active-egg-tag" class="text-yellow-300">#1</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">15.0s</span></span>
             </div>
         </div>
     </main>
@@ -129,7 +129,7 @@
             </div>
 
             <h1 class="font-game text-xl md:text-3xl text-yellow-300 mb-0.5 font-bold tracking-wide">Petualangan Telur Pancasila</h1>
-            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS Super (75 Kasus Kompleks)</p>
+            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS Super (75 Kasus Acak)</p>
 
             <div class="w-full bg-indigo-900/80 p-3.5 rounded-2xl border border-indigo-700/60 mb-3 text-left">
                 <div class="mb-2.5">
@@ -152,11 +152,11 @@
             </div>
 
             <p class="text-xs text-indigo-200 mb-3 leading-relaxed px-1">
-                Sentuh dan tahan <span class="text-yellow-300 font-bold">Telur Soal</span> untuk membaca narasi kasus panjang secara cepat (Waktu singkat: <span class="text-red-400 font-bold">15 Detik</span>), lalu geser ke <span class="text-yellow-300 font-bold">Keranjang Sila</span> yang tepat!
+                Sentuh dan tahan <span class="text-yellow-300 font-bold">Telur Soal</span> untuk membaca kasus acak (Waktu: <span class="text-red-400 font-bold">15 Detik</span>/Soal), lalu geser ke <span class="text-yellow-300 font-bold">Keranjang Sila</span> yang tepat!
             </p>
 
             <button id="btn-start-game" class="w-full py-3 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 text-indigo-950 font-bold font-game text-base md:text-lg rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-play text-lg"></i> MULAI PERMAINAN (75 SOAL)
+                <i class="fa-solid fa-play text-lg"></i> MULAI PERMAINAN (SOAL ACAK)
             </button>
         </div>
     </div>
@@ -496,92 +496,83 @@
             .catch(err => console.error('Gagal mengirim data:', err));
         }
 
-        // 75 SKENARIO HOTS PANCASILA (15 per Sila - Narasi Panjang & Kompleks)
+        // 75 SKENARIO HOTS PANCASILA (KUNCI SILA DIAJAK / UNSTRUCTURED)
         const SCENARIOS = [
-            // SILA 1: Ketuhanan Yang Maha Esa (1-15)
             { id: 1, text: "Seorang ilmuwan bioteknologi menemukan teknologi rekayasa genetika modern yang berpotensi memicu perdebatan moral agama. Ia memutuskan menyelenggarakan forum dialog teologis inklusif guna menjamin etika kemanusiaan yang selaras dengan nilai keimanan.", sila: 1 },
-            { id: 2, text: "Pemerintah daerah menengahi perizinan rumah ibadah yang ditolak kelompok warga lokal dengan menegaskan bahwa hak kebebasan berkeyakinan dijamin undang-undang di atas segala bentuk tekanan partisan.", sila: 1 },
-            { id: 3, text: "Menolak tegas segala bentuk kampanye politik identitas berbasis eksploitasi simbol agama di media sosial demi menjaga kesucian nilai spiritualitas dari kepentingan politik praktis.", sila: 1 },
-            { id: 4, text: "Seorang guru memfasilitasi ruang doa bergiliran yang inklusif dan bermartabat bagi murid-murid dari lima agama yang berbeda sebelum memulai agenda ujian nasional.", sila: 1 },
-            { id: 5, text: "Mengedepankan etika keagamaan yang moderat saat menanggapi tradisi ritual adat setempat tanpa melabeli secara sepihak sebagai tindakan menyimpang.", sila: 1 },
-            { id: 6, text: "Dalam penyusunan regulasi daerah, para pembuat kebijakan memastikan bahwa perda yang diterbitkan bersifat netral agama dan tidak mendiskriminasi penganut aliran kepercayaan.", sila: 1 },
-            { id: 7, text: "Menolak narasi ekstremisme agama yang disebarkan di forum digital dengan cara menyebarkan konten literasi moderasi beragama berbasis keharmonisan sosial.", sila: 1 },
-            { id: 8, text: "Mengintegrasikan nilai spiritualitas dan pertanggungjawaban moral kepada Tuhan Yang Maha Esa sebagai etika tertinggi dalam pengembangan kecerdasan buatan (AI).", sila: 1 },
-            { id: 9, text: "Masyarakat antarumat beragama di suatu desa bekerja sama menjaga keamanan tempat ibadah secara sukarela saat perayaan hari besar keagamaan masing-masing.", sila: 1 },
-            { id: 10, text: "Mengkritisi klaim kebenaran sepihak oleh oknum ormas tertentu yang mencoba memaksakan doktrin kelompoknya kepada warga heterogen di ruang publik.", sila: 1 },
-            { id: 11, text: "Mengutuk keras aksi vandalisme dan perusakan simbol keagamaan milik kelompok minoritas di tengah situasi ketegangan politik komunal.", sila: 1 },
-            { id: 12, text: "Pengelola lembaga filantropi berbasis keagamaan mengaudit dana sumbangan publik secara transparan agar tidak disalahgunakan untuk pendanaan radikalisme.", sila: 1 },
-            { id: 13, text: "Menghormati keputusan rekan kerja yang sedang menjalankan ibadah puasa dengan tidak menyelenggarakan jamuan makan terbuka di ruang rapat utama.", sila: 1 },
-            { id: 14, text: "Seorang dokter tetap menjalankan tugas medis secara profesional untuk menyelamatkan nyawa pasien tanpa mempermasalahkan perbedaan keyakinan keagamaan pasien tersebut.", sila: 1 },
-            { id: 15, text: "Menolak ajakan kelompok radikal yang menggunakan dalih doktrin suci untuk merusak keharmonisan toleransi antarumat di lingkungan kampus.", sila: 1 },
-
-            // SILA 2: Kemanusiaan yang Adil dan Beradab (16-30)
-            { id: 16, text: "Memperjuangkan hak perlindungan data pribadi dan privasi bagi pengungsi lintas negara sebagai wujud pengakuan terhadap martabat manusia universal.", sila: 2 },
-            { id: 17, text: "Menolak praktik 'poverty porn' atau komodifikasi kemiskinan warga kurang mampu demi meraih popularitas dan konten monetisasi di platform media sosial.", sila: 2 },
-            { id: 18, text: "Mengkritisi kebijakan penanganan imigran asing dengan mendesak pemenuhan fasilitas kesehatan dan tempat tinggal yang layak berdasarkan standar HAM internasional.", sila: 18 },
-            { id: 19, text: "Pemerintah membangun trotoar, lift publik, dan sarana transportasi yang dapat diakses dengan mudah serta bermartabat oleh para penyandang disabilitas.", sila: 2 },
-            { id: 20, text: "Menolak segala bentuk hukuman yang tidak manusiawi, tindakan penyiksaan, atau intimidasi psikologis dalam proses pemeriksaan peradilan tindak pidana.", sila: 2 },
-            { id: 21, text: "Pengembang perangkat lunak melakukan audit algoritma AI untuk menghilangkan bias rasial dan diskriminasi gender dalam proses perekrutan karyawan.", sila: 2 },
-            { id: 22, text: "Memberikan perlindungan hukum yang setara serta pendampingan psikologis bagi korban kekerasan seksual tanpa stigma dan perlakuan diskriminatif.", sila: 2 },
-            { id: 23, text: "Menggalang aksi kemanusiaan dan bantuan medis lintas negara bagi korban bencana alam dan konflik bersenjata tanpa memandang preferensi politik.", sila: 2 },
-            { id: 24, text: "Menghentikan perundungan terstruktur (bullying) di institusi pendidikan dengan menerapkan sanksi tegas serta rehabilitasi psikologis bagi korban.", sila: 2 },
-            { id: 25, text: "Perusahaan manufaktur membayar pesangon yang adil dan memberikan jaminan pelatihan vokasi bagi pekerja yang terdampak otomatisasi mesin.", sila: 2 },
-            { id: 26, text: "Mengutuk aksi 'doxing' atau penyebaran data pribadi terduga pelaku kejahatan di media sosial karena melanggar hak asas prapenerapan hukum yang adil.", sila: 2 },
-            { id: 27, text: "Menolak penggunaan tenaga kerja anak di bawah umur pada rantai pasokan industri pertambangan demi mempertahankan hak tumbuh kembang anak.", sila: 2 },
-            { id: 28, text: "Aparat penegak hukum memperlakukan tahanan secara manusiawi dan menyediakan layanan medis adekuat selama proses penahanan penyelewengan.", sila: 2 },
-            { id: 29, text: "Aktivis kemanusiaan mendesak penghapusan stigma negatif masyarakat terhadap mantan narapidana yang telah menyelesaikan masa hukumannya.", sila: 2 },
-            { id: 30, text: "Masyarakat sipil menuntut transparansi penanganan kasus pelanggaran HAM masa lalu agar para korban mendapatkan keadilan dan pemulihan nama baik.", sila: 2 },
-
-            // SILA 3: Persatuan Indonesia (31-45)
-            { id: 31, text: "Pemerintah mengutamakan kedaulatan data nasional dengan membangun pusat data di dalam negeri demi melindungi stabilitas informasi dari dominasi asing.", sila: 3 },
-            { id: 32, text: "Menolak paham chauvinisme yang mengagungkan kebudayaan daerah sendiri seraya merendahkan kebudayaan suku lain di forum ruang publik.", sila: 3 },
-            { id: 33, text: "Mengembangkan riset bahasa daerah yang terancam punah dan mengintegrasikannya ke dalam kurikulum pendidikan daerah sebagai kekayaan kultural bangsa.", sila: 3 },
-            { id: 34, text: "Meredam potensi konflik antarsuku di kawasan industri baru dengan mendirikan forum komunikasi kebangsaan yang mengedepankan akulturasi.", sila: 3 },
-            { id: 35, text: "Memaksimalkan pembangunan infrastruktur jaringan listrik dan internet di wilayah terdepan, terluar, dan tertinggal (3T) demi mewujudkan integrasi nasional.", sila: 3 },
-            { id: 36, text: "Masyarakat dengan bangga menggunakan dan membeli produk manufaktur lokal buatan industri dalam negeri sebagai bentuk dukungan pada kemandirian ekonomi.", sila: 3 },
-            { id: 37, text: "Atlit nasional bertanding dengan semangat sportivitas tinggi di panggung internasional demi mengibarkan bendera Merah Putih dan harumnya nama bangsa.", sila: 3 },
-            { id: 38, text: "Menolak provokasi gerakan separatisme yang mencoba memecah belah keutuhan NKRI dengan mendorong dialog kebangsaan yang konstruktif.", sila: 3 },
-            { id: 39, text: "Menjaga kerukunan dan kedamaian antarkelompok masyarakat yang berbeda pilihan politik saat berlangsungnya transisi kepemimpinan nasional.", sila: 3 },
-            { id: 40, text: "Menggunakan bahasa Indonesia yang baik dan benar sebagai media pemersatu dalam forum diskusi yang dihadiri oleh peserta dari berbagai suku bangsa.", sila: 40 },
-            { id: 41, text: "Pemuda-pemudi dari berbagai daerah menyelenggarakan festival budaya nusantara untuk memperkenalkan keberagaman adat istiadat sebagai perekat bangsa.", sila: 3 },
-            { id: 42, text: "Mengutuk segala bentuk propaganda bernuansa xenofobia yang menyudutkan warga pendatang di tengah pergaulan sosial heterogen.", sila: 3 },
-            { id: 43, text: "Prajurit TNI dan warga perbatasan bekerja sama menjaga patok batas wilayah negara demi mempertahankan keutuhan teritorial Republik Indonesia.", sila: 3 },
-            { id: 44, text: "Menjaga stabilitas keamanan siber nasional dari ancaman peretasan asing yang berpotensi melumpuhkan objek vital strategis negara.", sila: 3 },
-            { id: 45, text: "Generasi muda aktif melestarikan seni pertunjukan tradisional di era disrupsi digital agar identitas budaya bangsa tidak tergerus budaya luar.", sila: 3 },
-
-            // SILA 4: Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan (46-60)
-            { id: 46, text: "Kepala desa membatalkan rencana pembangunan proyek megah yang tidak mendesak setelah mendengarkan aspirasi warga dalam forum musyawarah desa.", sila: 4 },
-            { id: 47, text: "Menolak tirani mayoritas maupun dominasi kelompok minoritas kaya dalam pengambilan keputusan publik, dengan mengedepankan konsensus bersama.", sila: 4 },
-            { id: 48, text: "Menghormati dan mematuhi keputusan sengketa Pemilu yang telah ditetapkan oleh Mahkamah Konstitusi sebagai kewajiban dalam bernegara hukum.", sila: 4 },
-            { id: 49, text: "Menolak dengan tegas tawaran uang atau sembako ('politik uang') dari pasangan calon kepala daerah demi menjaga integritas demokrasi.", sila: 4 },
-            { id: 50, text: "Warga menyampaikan kritik dan masukan terhadap undang-undang yang baru disahkan melalui jalur uji materi (judicial review) yang sah.", sila: 4 },
-            { id: 51, text: "Pemerintah menyelenggarakan uji publik secara terbuka sebelum menetapkan tarif kenaikan pajak kendaraan bermotor untuk mendengar suara rakyat.", sila: 4 },
-            { id: 52, text: "Anggota DPR secara berkala mendatangi daerah pemilihan untuk menyerap aspirasi warga dan memperjuangkannya dalam rapat anggaran rapat parlemen.", sila: 4 },
-            { id: 53, text: "Menerima hasil voting keputusan rapat secara lapang dada dan ikut bertanggung jawab melaksanakannya meskipun pendapat pribadi tidak terpilih.", sila: 53 },
-            { id: 54, text: "Mengedepankan argumentasi berbasis data rasional dalam perdebatan politik daripada menyebarkan ujaran kebencian dan hoaks.", sila: 4 },
-            { id: 55, text: "Lembaga penyelenggara pemilu menjaga independensi dan transparansi dalam proses penghitungan suara untuk menjamin integritas demokrasi.", sila: 4 },
-            { id: 56, text: "Organisasi siswa menyelenggarakan pemilihan ketua OSIS secara jujur, adil, dan terbuka sebagai sarana pembelajaran demokrasi deliberatif.", sila: 4 },
-            { id: 57, text: "Pejabat publik mengundurkan diri sebagai bentuk tanggung jawab moral atas kegagalan eksekusi kebijakan yang merugikan publik secara luas.", sila: 4 },
-            { id: 58, text: "Menjamin kebebasan pers dalam meliput dan mengkritik kinerja pemerintah demi terciptanya keterbukaan informasi dan perimbangan kekuasaan.", sila: 4 },
-            { id: 59, text: "Menolak segala bentuk nepotisme dalam pengangkatan jabatan publik di instansi pemerintahan dan mendorong seleksi berbasis meritokrasi.", sila: 4 },
-            { id: 60, text: "Masyarakat sipil membentuk koalisi pengawas independen untuk memantau proses penyusunan anggaran belanja daerah agar bebas korupsi.", sila: 4 },
-
-            // SILA 5: Keadilan Sosial bagi Seluruh Rakyat Indonesia (61-75)
-            { id: 61, text: "Pemerintah memberlakukan pajak progresif bagi pemilik barang mewah demi mengumpulkan dana bantuan subsidi transportasi umum masyarakat.", sila: 5 },
-            { id: 62, text: "Mengawal keadilan ekologis dengan menindak tegas korporasi yang mencemari sungai agar sumber daya air tetap lestari bagi masyarakat sekitar.", sila: 62 },
-            { id: 63, text: "Menolak praktik monopoli dan kartel perdagangan yang mempermainkan harga bahan pokok hingga mematikan pedagang pasar tradisional.", sila: 5 },
-            { id: 64, text: "Menyediakan program beasiswa pendidikan penuh bagi anak-anak dari keluarga kurang mampu demi memutus rantai kemiskinan struktural.", sila: 5 },
-            { id: 65, text: "Membayar pajak pendapatan dan PBN secara jujur sebagai instrumen redistribusi keadilan sosial dan pembangunan sarana umum.", sila: 5 },
-            { id: 66, text: "Menghargai Hak Kekayaan Intelektual (HAKI) karya musisi lokal dengan membeli album resmi dan tidak menyebarkan file bajakan.", sila: 5 },
-            { id: 67, text: "Pemerintah memastikan distribusi pupuk bersubsidi sampai secara tepat sasaran kepada para petani kecil di pelosok pedesaan.", sila: 5 },
-            { id: 68, text: "Menjamin ketersediaan BPJS Kesehatan dengan pelayanan medis berkualitas tinggi yang dapat diakses secara merata oleh seluruh lapisan warga.", sila: 5 },
-            { id: 69, text: "Menolak pembongkaran fasilitas publik umum gratis demi pembangunan pusat perbelanjaan swasta yang hanya dinikmati kalangan tertentu.", sila: 5 },
-            { id: 70, text: "Pemerintah daerah memberikan jaminan perlindungan sosial dan keselamatan kerja bagi para pekerja sektor informal seperti pengemudi ojek online.", sila: 5 },
-            { id: 71, text: "Membagi hasil kerja proyek kelompok secara proporsional berdasarkan kontribusi dan keahlian masing-masing anggota secara adil.", sila: 5 },
-            { id: 72, text: "Pemerintah menyalurkan bantuan sosial bencana secara akuntabel tanpa melakukan manipulasi data penerima manfaat.", sila: 5 },
-            { id: 73, text: "Menerapkan gaya hidup hemat, ramah lingkungan, dan tidak memamerkan kekayaan secara berlebihan di tengah ketimpangan sosial.", sila: 5 },
-            { id: 74, text: "Lembaga hukum memberikan jaminan bantuan hukum secara gratis (pro bono) bagi masyarakat miskin yang terjerat kasus hukum.", sila: 5 },
-            { id: 75, text: "Pemerintah pusat mendorong pemerataan fasilitas listrik dan air bersih hingga ke pedalaman agar terjadi kesejahteraan merata.", sila: 5 }
+            { id: 2, text: "Memperjuangkan hak perlindungan data pribadi dan privasi bagi pengungsi lintas negara sebagai wujud pengakuan terhadap martabat manusia universal.", sila: 2 },
+            { id: 3, text: "Pemerintah mengutamakan kedaulatan data nasional dengan membangun pusat data di dalam negeri demi melindungi stabilitas informasi dari dominasi asing.", sila: 3 },
+            { id: 4, text: "Kepala desa membatalkan rencana pembangunan proyek megah yang tidak mendesak setelah mendengarkan aspirasi warga dalam forum musyawarah desa.", sila: 4 },
+            { id: 5, text: "Pemerintah memberlakukan pajak progresif bagi pemilik barang mewah demi mengumpulkan dana bantuan subsidi transportasi umum masyarakat.", sila: 5 },
+            { id: 6, text: "Menolak komodifikasi kemiskinan (poverty porn) atau eksploitasi warga kurang mampu demi meraih popularitas dan konten monetisasi di platform media sosial.", sila: 2 },
+            { id: 7, text: "Pemerintah daerah menengahi perizinan rumah ibadah yang ditolak kelompok warga lokal dengan menegaskan bahwa hak kebebasan berkeyakinan dijamin undang-undang di atas segala bentuk tekanan partisan.", sila: 1 },
+            { id: 8, text: "Menolak tirani mayoritas maupun dominasi kelompok minoritas kaya dalam pengambilan keputusan publik, dengan mengedepankan konsensus bersama.", sila: 4 },
+            { id: 9, text: "Mengawal keadilan ekologis dengan menindak tegas korporasi yang mencemari sungai agar sumber daya air tetap lestari bagi masyarakat sekitar.", sila: 5 },
+            { id: 10, text: "Menolak paham chauvinisme yang mengagungkan kebudayaan daerah sendiri seraya merendahkan kebudayaan suku lain di forum ruang publik.", sila: 3 },
+            { id: 11, text: "Menolak tegas segala bentuk kampanye politik identitas berbasis eksploitasi simbol agama di media sosial demi menjaga kesucian nilai spiritualitas dari kepentingan politik praktis.", sila: 1 },
+            { id: 12, text: "Mengkritisi kebijakan penanganan imigran asing dengan mendesak pemenuhan fasilitas kesehatan dan tempat tinggal yang layak berdasarkan standar HAM internasional.", sila: 2 },
+            { id: 13, text: "Menolak praktik monopoli dan kartel perdagangan yang mempermainkan harga bahan pokok hingga mematikan pedagang pasar tradisional.", sila: 5 },
+            { id: 14, text: "Menghormati dan mematuhi keputusan sengketa Pemilu yang telah ditetapkan oleh Mahkamah Konstitusi sebagai kewajiban dalam bernegara hukum.", sila: 4 },
+            { id: 15, text: "Mengembangkan riset bahasa daerah yang terancam punah dan mengintegrasikannya ke dalam kurikulum pendidikan daerah sebagai kekayaan kultural bangsa.", sila: 3 },
+            { id: 16, text: "Seorang guru memfasilitasi ruang doa bergiliran yang inklusif dan bermartabat bagi murid-murid dari lima agama yang berbeda sebelum memulai agenda ujian nasional.", sila: 1 },
+            { id: 17, text: "Pemerintah membangun trotoar, lift publik, dan sarana transportasi yang dapat diakses dengan mudah serta bermartabat oleh para penyandang disabilitas.", sila: 2 },
+            { id: 18, text: "Menolak dengan tegas tawaran uang atau sembako ('politik uang') dari pasangan calon kepala daerah demi menjaga integritas demokrasi.", sila: 4 },
+            { id: 19, text: "Menyediakan program beasiswa pendidikan penuh bagi anak-anak dari keluarga kurang mampu demi memutus rantai kemiskinan struktural.", sila: 5 },
+            { id: 20, text: "Meredam potensi konflik antarsuku di kawasan industri baru dengan mendirikan forum komunikasi kebangsaan yang mengedepankan akulturasi.", sila: 3 },
+            { id: 21, text: "Mengedepankan etika keagamaan yang moderat saat menanggapi tradisi ritual adat setempat tanpa melabeli secara sepihak sebagai tindakan menyimpang.", sila: 1 },
+            { id: 22, text: "Menolak segala bentuk hukuman yang tidak manusiawi, tindakan penyiksaan, atau intimidasi psikologis dalam proses pemeriksaan peradilan tindak pidana.", sila: 2 },
+            { id: 23, text: "Warga menyampaikan kritik dan masukan terhadap undang-undang yang baru disahkan melalui jalur uji materi (judicial review) yang sah.", sila: 4 },
+            { id: 24, text: "Memaksimalkan pembangunan infrastruktur jaringan listrik dan internet di wilayah terdepan, terluar, dan tertinggal (3T) demi mewujudkan integrasi nasional.", sila: 3 },
+            { id: 25, text: "Membayar pajak pendapatan dan PBB secara jujur sebagai instrumen redistribusi keadilan sosial dan pembangunan sarana umum.", sila: 5 },
+            { id: 26, text: "Pengembang perangkat lunak melakukan audit algoritma AI untuk menghilangkan bias rasial dan diskriminasi gender dalam proses perekrutan karyawan.", sila: 2 },
+            { id: 27, text: "Dalam penyusunan regulasi daerah, para pembuat kebijakan memastikan bahwa perda yang diterbitkan bersifat netral agama dan tidak mendiskriminasi penganut aliran kepercayaan.", sila: 1 },
+            { id: 28, text: "Pemerintah menyelenggarakan uji publik secara terbuka sebelum menetapkan tarif kenaikan pajak kendaraan bermotor untuk mendengar suara rakyat.", sila: 4 },
+            { id: 29, text: "Masyarakat dengan bangga menggunakan dan membeli produk manufaktur lokal buatan industri dalam negeri sebagai bentuk dukungan pada kemandirian ekonomi.", sila: 3 },
+            { id: 30, text: "Menghargai Hak Kekayaan Intelektual (HAKI) karya musisi lokal dengan membeli album resmi dan tidak menyebarkan file bajakan.", sila: 5 },
+            { id: 31, text: "Memberikan perlindungan hukum yang setara serta pendampingan psikologis bagi korban kekerasan seksual tanpa stigma dan perlakuan diskriminatif.", sila: 2 },
+            { id: 32, text: "Menolak narasi ekstremisme agama yang disebarkan di forum digital dengan cara menyebarkan konten literasi moderasi beragama berbasis keharmonisan sosial.", sila: 1 },
+            { id: 33, text: "Anggota DPR secara berkala mendatangi daerah pemilihan untuk menyerap aspirasi warga dan memperjuangkannya dalam rapat anggaran parlemen.", sila: 4 },
+            { id: 34, text: "Pemerintah memastikan distribusi pupuk bersubsidi sampai secara tepat sasaran kepada para petani kecil di pelosok pedesaan.", sila: 5 },
+            { id: 35, text: "Atlit nasional bertanding dengan semangat sportivitas tinggi di panggung internasional demi mengibarkan bendera Merah Putih dan harumnya nama bangsa.", sila: 3 },
+            { id: 36, text: "Menggalang aksi kemanusiaan dan bantuan medis lintas negara bagi korban bencana alam dan konflik bersenjata tanpa memandang preferensi politik.", sila: 2 },
+            { id: 37, text: "Mengintegrasikan nilai spiritualitas dan pertanggungjawaban moral kepada Tuhan Yang Maha Esa sebagai etika tertinggi dalam pengembangan kecerdasan buatan (AI).", sila: 1 },
+            { id: 38, text: "Menerima hasil voting keputusan rapat secara lapang dada dan ikut bertanggung jawab melaksanakannya meskipun pendapat pribadi tidak terpilih.", sila: 4 },
+            { id: 39, text: "Menjamin ketersediaan BPJS Kesehatan dengan pelayanan medis berkualitas tinggi yang dapat diakses secara merata oleh seluruh lapisan warga.", sila: 5 },
+            { id: 40, text: "Menolak provokasi gerakan separatisme yang mencoba memecah belah keutuhan NKRI dengan mendorong dialog kebangsaan yang konstruktif.", sila: 3 },
+            { id: 41, text: "Menghentikan perundungan terstruktur (bullying) di institusi pendidikan dengan menerapkan sanksi tegas serta rehabilitasi psikologis bagi korban.", sila: 2 },
+            { id: 42, text: "Masyarakat antarumat beragama di suatu desa bekerja sama menjaga keamanan tempat ibadah secara sukarela saat perayaan hari besar keagamaan masing-masing.", sila: 1 },
+            { id: 43, text: "Mengedepankan argumentasi berbasis data rasional dalam perdebatan politik daripada menyebarkan ujaran kebencian dan hoaks.", sila: 4 },
+            { id: 44, text: "Menolak pembongkaran fasilitas publik umum gratis demi pembangunan pusat perbelanjaan swasta yang hanya dinikmati kalangan tertentu.", sila: 5 },
+            { id: 45, text: "Menjaga kerukunan dan kedamaian antarkelompok masyarakat yang berbeda pilihan politik saat berlangsungnya transisi kepemimpinan nasional.", sila: 3 },
+            { id: 46, text: "Perusahaan manufaktur membayar pesangon yang adil dan memberikan jaminan pelatihan vokasi bagi pekerja yang terdampak otomatisasi mesin.", sila: 2 },
+            { id: 47, text: "Mengkritisi klaim kebenaran sepihak oleh oknum ormas tertentu yang mencoba memaksakan doktrin kelompoknya kepada warga heterogen di ruang publik.", sila: 1 },
+            { id: 48, text: "Lembaga penyelenggara pemilu menjaga independensi dan transparansi dalam proses penghitungan suara untuk menjamin integritas demokrasi.", sila: 4 },
+            { id: 49, text: "Pemerintah daerah memberikan jaminan perlindungan sosial dan keselamatan kerja bagi para pekerja sektor informal seperti pengemudi ojek online.", sila: 5 },
+            { id: 50, text: "Menggunakan bahasa Indonesia yang baik dan benar sebagai media pemersatu dalam forum diskusi yang dihadiri oleh peserta dari berbagai suku bangsa.", sila: 3 },
+            { id: 51, text: "Mengutuk aksi 'doxing' atau penyebaran data pribadi terduga pelaku kejahatan di media sosial karena melanggar asas praduga tak bersalah dan peradilan yang adil.", sila: 2 },
+            { id: 52, text: "Mengutuk keras aksi vandalisme dan perusakan simbol keagamaan milik kelompok minoritas di tengah situasi ketegangan politik komunal.", sila: 1 },
+            { id: 53, text: "Organisasi siswa menyelenggarakan pemilihan ketua OSIS secara jujur, adil, dan terbuka sebagai sarana pembelajaran demokrasi deliberatif.", sila: 4 },
+            { id: 54, text: "Membagi hasil kerja proyek kelompok secara proporsional berdasarkan kontribusi dan keahlian masing-masing anggota secara adil.", sila: 5 },
+            { id: 55, text: "Pemuda-pemudi dari berbagai daerah menyelenggarakan festival budaya nusantara untuk memperkenalkan keberagaman adat istiadat sebagai perekat bangsa.", sila: 3 },
+            { id: 56, text: "Menolak penggunaan tenaga kerja anak di bawah umur pada rantai pasokan industri pertambangan demi mempertahankan hak tumbuh kembang anak.", sila: 2 },
+            { id: 57, text: "Pengelola lembaga filantropi berbasis keagamaan mengaudit dana sumbangan publik secara transparan agar tidak disalahgunakan untuk pendanaan radikalisme.", sila: 1 },
+            { id: 58, text: "Pejabat publik mengundurkan diri sebagai bentuk tanggung jawab moral atas kegagalan eksekusi kebijakan yang merugikan publik secara luas.", sila: 4 },
+            { id: 59, text: "Pemerintah menyalurkan bantuan sosial bencana secara akuntabel tanpa melakukan manipulasi data penerima manfaat.", sila: 5 },
+            { id: 60, text: "Mengutuk segala bentuk propaganda bernuansa xenofobia yang menyudutkan warga pendatang di tengah pergaulan sosial heterogen.", sila: 3 },
+            { id: 61, text: "Aparat penegak hukum memperlakukan tahanan secara manusiawi dan menyediakan layanan medis adekuat selama proses penahanan penyelewengan.", sila: 2 },
+            { id: 62, text: "Menghormati keputusan rekan kerja yang sedang menjalankan ibadah puasa dengan tidak menyelenggarakan jamuan makan terbuka di ruang rapat utama.", sila: 1 },
+            { id: 63, text: "Menjamin kebebasan pers dalam meliput dan mengkritik kinerja pemerintah demi terciptanya keterbukaan informasi dan perimbangan kekuasaan.", sila: 4 },
+            { id: 64, text: "Menerapkan gaya hidup hemat, ramah lingkungan, dan tidak memamerkan kekayaan secara berlebihan di tengah ketimpangan sosial.", sila: 5 },
+            { id: 65, text: "Prajurit TNI dan warga perbatasan bekerja sama menjaga patok batas wilayah negara demi mempertahankan keutuhan teritorial Republik Indonesia.", sila: 3 },
+            { id: 66, text: "Aktivis kemanusiaan mendesak penghapusan stigma negatif masyarakat terhadap mantan narapidana yang telah menyelesaikan masa hukumannya.", sila: 2 },
+            { id: 67, text: "Seorang dokter tetap menjalankan tugas medis secara profesional untuk menyelamatkan nyawa pasien tanpa mempermasalahkan perbedaan keyakinan keagamaan pasien tersebut.", sila: 1 },
+            { id: 68, text: "Menolak segala bentuk nepotisme dalam pengangkatan jabatan publik di instansi pemerintahan dan mendorong seleksi berbasis meritokrasi.", sila: 4 },
+            { id: 69, text: "Lembaga hukum memberikan jaminan bantuan hukum secara gratis (pro bono) bagi masyarakat miskin yang terjerat kasus hukum.", sila: 5 },
+            { id: 70, text: "Menjaga stabilitas keamanan siber nasional dari ancaman peretasan asing yang berpotensi melumpuhkan objek vital strategis negara.", sila: 3 },
+            { id: 71, text: "Masyarakat sipil menuntut transparansi penanganan kasus pelanggaran HAM masa lalu agar para korban mendapatkan keadilan dan pemulihan nama baik.", sila: 2 },
+            { id: 72, text: "Menolak ajakan kelompok radikal yang menggunakan dalih doktrin suci untuk merusak keharmonisan toleransi antarumat di lingkungan kampus.", sila: 1 },
+            { id: 73, text: "Masyarakat sipil membentuk koalisi pengawas independen untuk memantau proses penyusunan anggaran belanja daerah agar bebas korupsi.", sila: 4 },
+            { id: 74, text: "Pemerintah pusat mendorong pemerataan fasilitas listrik dan air bersih hingga ke pedalaman agar terjadi kesejahteraan merata.", sila: 5 },
+            { id: 75, text: "Generasi muda aktif melestarikan seni pertunjukan tradisional di era disrupsi digital agar identitas budaya bangsa tidak tergerus budaya luar.", sila: 3 }
         ];
 
         const SILA_INFO = [
@@ -607,7 +598,7 @@
         let isGameOver = false;
         let isGameStarted = false;
 
-        const EGG_TIMER_MAX = 15.0; // Waktu Dipangkas Jadi 15 Detik per Telur (Cepat)
+        const EGG_TIMER_MAX = 15.0; // Waktu Pengerjaan per Soal
 
         const pointer = { x: 0, y: 0, isDown: false, justPressed: false };
 
@@ -827,7 +818,7 @@
                 pointer.justPressed = false;
             }
 
-            // PER-EGG TIMER UPDATE (Setiap telur memiliki timer sendiri 15 detik saat dipecahkan/dipegang)
+            // PER-EGG TIMER UPDATE (Timer 15s per telur aktif)
             const bombBanner = document.getElementById('banner-bomb');
             const bombText = document.getElementById('bomb-timer-text');
             const activeEggTag = document.getElementById('active-egg-tag');
@@ -850,7 +841,7 @@
 
                 // Jika timer telur aktif habis!
                 if (currentEgg.timer <= 0) {
-                    currentEgg.active = false; // Telur meledak & hancur
+                    currentEgg.active = false; // Telur hancur
                     hp -= 15;
                     combo = 1;
                     audio.playExplosion();
@@ -986,7 +977,7 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // Emoji Icon - Jelas & Besar
+                // Emoji Icon
                 const isMobile = width < 600;
                 const iconSize = isMobile ? 26 : 34;
                 ctx.font = `${iconSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
@@ -994,7 +985,7 @@
                 ctx.textBaseline = 'middle';
                 ctx.fillText(cloud.symbol, 0, -cloud.h * 0.18);
 
-                // Text "Sila X" - Tebal & Tajam
+                // Text "Sila X"
                 const fontSize = isMobile ? 12 : 14;
                 ctx.font = `bold ${fontSize}px Fredoka, cursive`;
                 ctx.fillStyle = '#FFFFFF';
@@ -1015,7 +1006,7 @@
                 const scale = 1 + Math.sin(egg.pulse) * 0.05;
                 ctx.scale(scale, scale);
 
-                // Indikator Lingkaran Waktu jika telur ini aktif dipilih
+                // Indikator Waktu Telur Aktif
                 if (activeEggIdx === idx) {
                     const timerPercent = Math.max(0, egg.timer / egg.maxTimer);
                     ctx.beginPath();
@@ -1051,7 +1042,7 @@
 
                 ctx.restore();
 
-                // Banner Baca Soal HOTS (Format Narasi Panjang dengan Dynamic Wrap)
+                // Banner Baca Soal HOTS
                 if (activeEggIdx === idx) {
                     ctx.save();
                     const isMobile = width < 600;
@@ -1095,7 +1086,7 @@
                 ctx.restore();
             });
 
-            // Floating Text Poin
+            // Floating Text
             floatTexts.forEach(ft => {
                 ctx.save();
                 ctx.globalAlpha = Math.max(0, ft.life);
@@ -1170,7 +1161,6 @@
             playerData.nama = nama;
             playerData.kelas = kelas;
 
-            // Masuk Mode Fullscreen Otomatis
             requestFullScreen();
 
             audio.init();
