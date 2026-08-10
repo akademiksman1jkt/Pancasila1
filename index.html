@@ -9,13 +9,13 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>Petualangan Telur Pancasila</title>
+    <title>Petualangan Bintang Pancasila HOTS Kelas 12</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -63,11 +63,11 @@
     <header class="bg-slate-950/90 backdrop-blur-md border-b border-indigo-700/60 px-3 py-2 flex flex-wrap items-center justify-between z-20 shadow-xl gap-2">
         <div class="flex items-center gap-2">
             <div class="w-9 h-9 md:w-11 md:h-11 rounded-2xl bg-gradient-to-tr from-amber-400 to-yellow-200 text-indigo-950 flex items-center justify-center font-game font-bold text-lg md:text-2xl shadow-md border-2 border-yellow-300">
-                🇲🇨
+                ⭐
             </div>
             <div>
-                <h1 class="font-game text-sm md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Telur Pancasila</h1>
-                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal Acak)</p>
+                <h1 class="font-game text-sm md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Bintang Pancasila</h1>
+                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Tantangan Kritis HOTS - Kelas 12 SMA</p>
             </div>
         </div>
 
@@ -84,13 +84,13 @@
 
             <div class="flex items-center gap-2 bg-indigo-950/80 px-2.5 py-1 rounded-xl border border-indigo-700/60">
                 <div class="text-center">
-                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase tracking-wider font-semibold">Skor</div>
-                    <div id="score-text" class="font-game text-amber-300 text-xs md:text-base font-bold leading-none">0</div>
+                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase tracking-wider font-semibold">Benar</div>
+                    <div id="score-text" class="font-game text-amber-300 text-xs md:text-base font-bold leading-none">0 / 75</div>
                 </div>
                 <div class="h-4 w-px bg-indigo-700"></div>
                 <div class="text-center">
-                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase tracking-wider font-semibold">Combo</div>
-                    <div id="combo-text" class="font-game text-emerald-400 text-xs md:text-base font-bold leading-none">x1</div>
+                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase tracking-wider font-semibold">Streak</div>
+                    <div id="combo-text" class="font-game text-emerald-400 text-xs md:text-base font-bold leading-none">x0</div>
                 </div>
             </div>
 
@@ -118,7 +118,7 @@
         <div class="pointer-events-none absolute inset-x-0 top-2 flex flex-col items-center justify-center px-2 z-10">
             <div id="banner-bomb" class="px-3.5 py-1.5 rounded-full bg-red-600/95 border-2 border-yellow-400 text-white text-[11px] md:text-sm font-black flex items-center gap-2 shadow-2xl bounce-soft transition-all duration-300">
                 <i class="fa-solid fa-stopwatch text-yellow-300 text-base animate-spin"></i>
-                <span><span id="bomb-status-label" class="text-yellow-200">SEGERA PILIH TELUR</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
+                <span><span id="bomb-status-label" class="text-yellow-200">SEGERA PILIH BINTANG</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
             </div>
         </div>
     </main>
@@ -130,26 +130,26 @@
             <div class="relative mb-2">
                 <div class="absolute -inset-2 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-full blur opacity-75 spin-slow"></div>
                 <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-200 text-indigo-950 flex items-center justify-center text-3xl shadow-lg border-4 border-yellow-300 bounce-soft">
-                    🇲🇨
+                    ⭐
                 </div>
             </div>
 
-            <h1 class="font-game text-xl md:text-3xl text-yellow-300 mb-0.5 font-bold tracking-wide">Petualangan Telur Pancasila</h1>
-            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS (75 Kasus Acak)</p>
+            <h1 class="font-game text-xl md:text-3xl text-yellow-300 mb-0.5 font-bold tracking-wide">Bintang Pancasila Kelas 12</h1>
+            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Analisis Kritis Studi Kasus Konstitusional & Ideologis</p>
 
             <div class="w-full bg-indigo-900/80 p-3.5 rounded-2xl border border-indigo-700/60 mb-3 text-left">
                 <div class="mb-2.5">
                     <label for="input-nama" class="block text-xs font-bold text-amber-300 mb-1">
-                        <i class="fa-solid fa-user mr-1"></i> Nama Lengkap:
+                        <i class="fa-solid fa-user mr-1"></i> Nama Lengkap Siswa:
                     </label>
                     <input type="text" id="input-nama" placeholder="Masukkan nama kamu..." class="w-full px-3 py-2 rounded-xl bg-indigo-950 border border-indigo-600 text-white text-xs focus:outline-none focus:border-yellow-400 transition-all">
                 </div>
                 <div>
                     <label for="select-kelas" class="block text-xs font-bold text-amber-300 mb-1">
-                        <i class="fa-solid fa-graduation-cap mr-1"></i> Pilih Kelas:
+                        <i class="fa-solid fa-graduation-cap mr-1"></i> Pilih Kelas (Khusus XII):
                     </label>
                     <select id="select-kelas" class="w-full px-3 py-2 rounded-xl bg-indigo-950 border border-indigo-600 text-white text-xs focus:outline-none focus:border-yellow-400 transition-all">
-                        <option value="" disabled selected>-- Pilih Kelas (X-1 s/d XII-8) --</option>
+                        <option value="" disabled selected>-- Pilih Rombel Kelas XII --</option>
                     </select>
                 </div>
                 <div id="form-error" class="text-red-400 text-[10px] mt-1.5 hidden font-semibold">
@@ -158,11 +158,11 @@
             </div>
 
             <p class="text-xs text-indigo-200 mb-3 leading-relaxed px-1">
-                ⚠️ <span class="text-yellow-300 font-bold">Aturan Main:</span> Kamu memiliki <span class="text-red-400 font-bold">10 Detik</span> untuk memilih telur sebelum bom meledak! Setelah telur dipilih, tuntaskan analisis dalam <span class="text-yellow-300 font-bold">15 Detik</span>.
+                ⚠️ <span class="text-yellow-300 font-bold">Aturan Analisis:</span> Pilih bintang berdurasi <span class="text-red-400 font-bold">10 Detik</span>. Setelah bintang dipegang, cermati kasus HOTS di tengah layar lalu tarik ke keranjang Sila yang relevan dalam waktu <span class="text-yellow-300 font-bold">15 Detik</span>. Setiap jawaban benar menambah <span class="text-emerald-400 font-bold">+1 Poin</span> dan memicu <span class="text-amber-300 font-bold">Streak Bonus</span>!
             </p>
 
             <button id="btn-start-game" class="w-full py-3 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 text-indigo-950 font-bold font-game text-base md:text-lg rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-play text-lg"></i> MULAI PERMAINAN
+                <i class="fa-solid fa-play text-lg"></i> MULAI ANALISIS HOTS
             </button>
         </div>
     </div>
@@ -173,7 +173,7 @@
             <div class="flex items-center justify-between pb-2 border-b border-indigo-800 mb-3">
                 <h2 class="font-game text-lg text-yellow-300 flex items-center gap-2">
                     <i class="fa-solid fa-book-open text-amber-400"></i>
-                    Panduan Konsep Sila Pancasila
+                    Kerangka Analisis Nilai Pancasila Kelas XII
                 </h2>
                 <button id="btn-close-guide" class="w-7 h-7 rounded-full bg-indigo-900 text-indigo-300 hover:bg-indigo-800 flex items-center justify-center text-xs">
                     <i class="fa-solid fa-xmark"></i>
@@ -183,27 +183,27 @@
             <div class="overflow-y-auto space-y-2.5 pr-1 text-xs">
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
                     <span class="text-2xl">⭐</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 1: Ketuhanan Yang Maha Esa</strong>Etika spiritualitas, toleransi inklusif, penolakan politisasi agama, & keharmonisan komunal.</div>
+                    <div><strong class="text-amber-300 block font-game">Sila 1: Ketuhanan Yang Maha Esa</strong>Spiritualitas berbangsa, etika keagamaan, toleransi antarumat, & penolakan radikalisme/politisasi agama.</div>
                 </div>
 
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
                     <span class="text-2xl">⛓️</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 2: Kemanusiaan yang Adil dan Beradab</strong>HAM universal, etika AI & digital, perlindungan korban kekerasan, & perlakuan bermartabat.</div>
+                    <div><strong class="text-amber-300 block font-game">Sila 2: Kemanusiaan yang Adil dan Beradab</strong>Penegakan HAM universal, etika AI/teknologi, perlakuan diskriminatif, & martabat kemanusiaan.</div>
                 </div>
 
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
                     <span class="text-2xl">🌳</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 3: Persatuan Indonesia</strong>Integrasi nasional, kedaulatan digital/data, revitalisasi budaya, & anti-chauvinisme.</div>
+                    <div><strong class="text-amber-300 block font-game">Sila 3: Persatuan Indonesia</strong>Kedaulatan wilayah, integrasi siber/data, kesadaran geopolitik, & pertahanan dari disintegrasi.</div>
                 </div>
 
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
                     <span class="text-2xl">🐂</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 4: Kerakyatan yang Dipimpin...</strong>Musyawarah deliberatif, penolakan tirani, anti-politik uang, & partisipasi politik sah.</div>
+                    <div><strong class="text-amber-300 block font-game">Sila 4: Kerakyatan yang Dipimpin...</strong>Demokrasi deliberatif, integritas Pemilu/Pemilukada, kedaulatan rakyat, & antikorupsi/nepotisme.</div>
                 </div>
 
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
                     <span class="text-2xl">🌾</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 5: Keadilan Sosial bagi Seluruh...</strong>Keadilan ekologis, penolakan monopoli pasar, redistribusi pendapatan, HAKI, & bansos tepat.</div>
+                    <div><strong class="text-amber-300 block font-game">Sila 5: Keadilan Sosial bagi Seluruh...</strong>Pemerataan ekonomi, keadilan ekologis, perlindungan sektor informal, & kedaulatan riset/HAKI.</div>
                 </div>
             </div>
 
@@ -217,19 +217,19 @@
     <div id="modal-end" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-indigo-950 border-2 border-amber-400 rounded-3xl max-w-md w-full p-5 text-center text-white shadow-2xl flex flex-col items-center relative overflow-hidden">
             <div id="end-icon" class="text-5xl mb-1 animate-bounce">🏆</div>
-            <h2 id="end-title" class="font-game text-xl md:text-2xl text-yellow-300 mb-0.5">Petualangan Selesai!</h2>
-            <p id="end-subtitle" class="text-xs text-indigo-200 mb-3">Kamu telah menguji analisis nilai Pancasila!</p>
+            <h2 id="end-title" class="font-game text-xl md:text-2xl text-yellow-300 mb-0.5">Analisis Selesai!</h2>
+            <p id="end-subtitle" class="text-xs text-indigo-200 mb-3">Kamu telah menguji pemahaman kritis Pancasila Kelas XII!</p>
 
             <div id="end-player-info" class="text-xs text-amber-300 font-bold mb-2.5"></div>
 
             <div class="w-full bg-indigo-900/60 rounded-2xl p-3 border border-indigo-700/50 space-y-1.5 mb-3">
                 <div class="flex justify-between text-xs">
-                    <span class="text-indigo-300">Skor Akhir:</span>
-                    <span id="end-score" class="font-bold text-amber-300 font-game text-base">0</span>
+                    <span class="text-indigo-300">Total Benar:</span>
+                    <span id="end-score" class="font-bold text-amber-300 font-game text-base">0 / 75</span>
                 </div>
                 <div class="flex justify-between text-xs">
-                    <span class="text-indigo-300">Kasus Selesai:</span>
-                    <span id="end-cases" class="font-bold text-emerald-300 font-game text-base">0 / 75</span>
+                    <span class="text-indigo-300">Akurasi Analisis:</span>
+                    <span id="end-accuracy" class="font-bold text-emerald-300 font-game text-base">0%</span>
                 </div>
                 <div class="flex justify-between text-xs">
                     <span class="text-indigo-300">Gelar:</span>
@@ -238,18 +238,18 @@
             </div>
 
             <div id="end-status" class="text-[11px] text-emerald-400 font-semibold mb-3 hidden">
-                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Data hasil telah tersimpan di Spreadsheet!
+                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Data nilai telah dikirim ke Spreadsheet Guru!
             </div>
 
             <button id="btn-play-again" class="w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-400 text-indigo-950 font-bold font-game text-sm rounded-xl shadow-xl hover:brightness-110 active:scale-95 transition-all">
-                <i class="fa-solid fa-rotate-right mr-1.5"></i> Coba Lagi
+                <i class="fa-solid fa-rotate-right mr-1.5"></i> Coba Ulang Game
             </button>
         </div>
     </div>
 
     <!-- SKRIP AUTO-FORCE REFRESH (GITHUB PAGES VERSION CONTROL) -->
     <script>
-        const APP_VERSION = "1.0.1"; 
+        const APP_VERSION = "2.3.0"; 
 
         (function forceRefreshOnUpdate() {
             const savedVersion = localStorage.getItem('pancasila_app_version');
@@ -347,6 +347,25 @@
                         gain.connect(this.ctx.destination);
                         osc.start(this.ctx.currentTime + i * 0.07);
                         osc.stop(this.ctx.currentTime + i * 0.07 + 0.22);
+                    });
+                } catch(e){}
+            }
+
+            playStreakSound() {
+                if (!this.enabled || !this.ctx) return;
+                try {
+                    const freqs = [440, 554.37, 659.25, 880, 1108.73];
+                    freqs.forEach((f, i) => {
+                        const osc = this.ctx.createOscillator();
+                        const gain = this.ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.08);
+                        gain.gain.setValueAtTime(0.25, this.ctx.currentTime + i * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.08 + 0.3);
+                        osc.connect(gain);
+                        gain.connect(this.ctx.destination);
+                        osc.start(this.ctx.currentTime + i * 0.08);
+                        osc.stop(this.ctx.currentTime + i * 0.08 + 0.3);
                     });
                 } catch(e){}
             }
@@ -489,16 +508,13 @@
         function populateClassOptions() {
             const select = document.getElementById('select-kelas');
             if (!select) return;
-            const grades = ['X', 'XI', 'XII'];
-            grades.forEach(grade => {
-                for (let i = 1; i <= 8; i++) {
-                    const className = `${grade}-${i}`;
-                    const opt = document.createElement('option');
-                    opt.value = className;
-                    opt.textContent = className;
-                    select.appendChild(opt);
-                }
-            });
+            for (let i = 1; i <= 8; i++) {
+                const className = `XII-${i}`;
+                const opt = document.createElement('option');
+                opt.value = className;
+                opt.textContent = className;
+                select.appendChild(opt);
+            }
         }
 
         function sendDataToSpreadsheet(data) {
@@ -516,83 +532,83 @@
             .catch(err => console.error('Gagal mengirim data:', err));
         }
 
-        // 75 SKENARIO HOTS PANCASILA (SOAL ACAK)
+        // 75 SKENARIO HOTS PANCASILA (BOBOT TINGKAT KELAS 12 SMA)
         const SCENARIOS = [
-            { id: 1, text: "Seorang ilmuwan bioteknologi menemukan teknologi rekayasa genetika modern yang berpotensi memicu perdebatan moral agama. Ia memutuskan menyelenggarakan forum dialog teologis inklusif guna menjamin etika kemanusiaan yang selaras dengan nilai keimanan.", sila: 1 },
-            { id: 2, text: "Memperjuangkan hak perlindungan data pribadi dan privasi bagi pengungsi lintas negara sebagai wujud pengakuan terhadap martabat manusia universal.", sila: 2 },
-            { id: 3, text: "Pemerintah mengutamakan kedaulatan data nasional dengan membangun pusat data di dalam negeri demi melindungi stabilitas informasi dari dominasi asing.", sila: 3 },
-            { id: 4, text: "Kepala desa membatalkan rencana pembangunan proyek megah yang tidak mendesak setelah mendengarkan aspirasi warga dalam forum musyawarah desa.", sila: 4 },
-            { id: 5, text: "Pemerintah memberlakukan pajak progresif bagi pemilik barang mewah demi mengumpulkan dana bantuan subsidi transportasi umum masyarakat.", sila: 5 },
-            { id: 6, text: "Menolak komodifikasi kemiskinan (poverty porn) atau eksploitasi warga kurang mampu demi meraih popularitas dan konten monetisasi di platform media sosial.", sila: 2 },
-            { id: 7, text: "Pemerintah daerah menengahi perizinan rumah ibadah yang ditolak kelompok warga lokal dengan menegaskan bahwa hak kebebasan berkeyakinan dijamin undang-undang di atas segala bentuk tekanan partisan.", sila: 1 },
-            { id: 8, text: "Menolak tirani mayoritas maupun dominasi kelompok minoritas kaya dalam pengambilan keputusan publik, dengan mengedepankan konsensus bersama.", sila: 4 },
-            { id: 9, text: "Mengawal keadilan ekologis dengan menindak tegas korporasi yang mencemari sungai agar sumber daya air tetap lestari bagi masyarakat sekitar.", sila: 5 },
-            { id: 10, text: "Menolak paham chauvinisme yang mengagungkan kebudayaan daerah sendiri seraya merendahkan kebudayaan suku lain di forum ruang publik.", sila: 3 },
-            { id: 11, text: "Menolak tegas segala bentuk kampanye politik identitas berbasis eksploitasi simbol agama di media sosial demi menjaga kesucian nilai spiritualitas dari kepentingan politik praktis.", sila: 1 },
-            { id: 12, text: "Mengkritisi kebijakan penanganan imigran asing dengan mendesak pemenuhan fasilitas kesehatan dan tempat tinggal yang layak berdasarkan standar HAM internasional.", sila: 2 },
-            { id: 13, text: "Menolak praktik monopoli dan kartel perdagangan yang mempermainkan harga bahan pokok hingga mematikan pedagang pasar tradisional.", sila: 5 },
-            { id: 14, text: "Menghormati dan mematuhi keputusan sengketa Pemilu yang telah ditetapkan oleh Mahkamah Konstitusi sebagai kewajiban dalam bernegara hukum.", sila: 4 },
-            { id: 15, text: "Mengembangkan riset bahasa daerah yang terancam punah dan mengintegrasikannya ke dalam kurikulum pendidikan daerah sebagai kekayaan kultural bangsa.", sila: 3 },
-            { id: 16, text: "Seorang guru memfasilitasi ruang doa bergiliran yang inklusif dan bermartabat bagi murid-murid dari lima agama yang berbeda sebelum memulai agenda ujian nasional.", sila: 1 },
-            { id: 17, text: "Pemerintah membangun trotoar, lift publik, dan sarana transportasi yang dapat diakses dengan mudah serta bermartabat oleh para penyandang disabilitas.", sila: 2 },
-            { id: 18, text: "Menolak dengan tegas tawaran uang atau sembako ('politik uang') dari pasangan calon kepala daerah demi menjaga integritas demokrasi.", sila: 4 },
-            { id: 19, text: "Menyediakan program beasiswa pendidikan penuh bagi anak-anak dari keluarga kurang mampu demi memutus rantai kemiskinan struktural.", sila: 5 },
-            { id: 20, text: "Meredam potensi konflik antarsuku di kawasan industri baru dengan mendirikan forum komunikasi kebangsaan yang mengedepankan akulturasi.", sila: 3 },
-            { id: 21, text: "Mengedepankan etika keagamaan yang moderat saat menanggapi tradisi ritual adat setempat tanpa melabeli secara sepihak sebagai tindakan menyimpang.", sila: 1 },
-            { id: 22, text: "Menolak segala bentuk hukuman yang tidak manusiawi, tindakan penyiksaan, atau intimidasi psikologis dalam proses pemeriksaan peradilan tindak pidana.", sila: 2 },
-            { id: 23, text: "Warga menyampaikan kritik dan masukan terhadap undang-undang yang baru disahkan melalui jalur uji materi (judicial review) yang sah.", sila: 4 },
-            { id: 24, text: "Memaksimalkan pembangunan infrastruktur jaringan listrik dan internet di wilayah terdepan, terluar, dan tertinggal (3T) demi mewujudkan integrasi nasional.", sila: 3 },
-            { id: 25, text: "Membayar pajak pendapatan dan PBB secara jujur sebagai instrumen redistribusi keadilan sosial dan pembangunan sarana umum.", sila: 5 },
-            { id: 26, text: "Pengembang perangkat lunak melakukan audit algoritma AI untuk menghilangkan bias rasial dan diskriminasi gender dalam proses perekrutan karyawan.", sila: 2 },
-            { id: 27, text: "Dalam penyusunan regulasi daerah, para pembuat kebijakan memastikan bahwa perda yang diterbitkan bersifat netral agama dan tidak mendiskriminasi penganut aliran kepercayaan.", sila: 1 },
-            { id: 28, text: "Pemerintah menyelenggarakan uji publik secara terbuka sebelum menetapkan tarif kenaikan pajak kendaraan bermotor untuk mendengar suara rakyat.", sila: 4 },
-            { id: 29, text: "Masyarakat dengan bangga menggunakan dan membeli produk manufaktur lokal buatan industri dalam negeri sebagai bentuk dukungan pada kemandirian ekonomi.", sila: 3 },
-            { id: 30, text: "Menghargai Hak Kekayaan Intelektual (HAKI) karya musisi lokal dengan membeli album resmi dan tidak menyebarkan file bajakan.", sila: 5 },
-            { id: 31, text: "Memberikan perlindungan hukum yang setara serta pendampingan psikologis bagi korban kekerasan seksual tanpa stigma dan perlakuan diskriminatif.", sila: 2 },
-            { id: 32, text: "Menolak narasi ekstremisme agama yang disebarkan di forum digital dengan cara menyebarkan konten literasi moderasi beragama berbasis keharmonisan sosial.", sila: 1 },
-            { id: 33, text: "Anggota DPR secara berkala mendatangi daerah pemilihan untuk menyerap aspirasi warga dan memperjuangkannya dalam rapat anggaran parlemen.", sila: 4 },
-            { id: 34, text: "Pemerintah memastikan distribusi pupuk bersubsidi sampai secara tepat sasaran kepada para petani kecil di pelosok pedesaan.", sila: 5 },
-            { id: 35, text: "Atlit nasional bertanding dengan semangat sportivitas tinggi di panggung internasional demi mengibarkan bendera Merah Putih dan harumnya nama bangsa.", sila: 3 },
-            { id: 36, text: "Menggalang aksi kemanusiaan dan bantuan medis lintas negara bagi korban bencana alam dan konflik bersenjata tanpa memandang preferensi politik.", sila: 2 },
-            { id: 37, text: "Mengintegrasikan nilai spiritualitas dan pertanggungjawaban moral kepada Tuhan Yang Maha Esa sebagai etika tertinggi dalam pengembangan kecerdasan buatan (AI).", sila: 1 },
-            { id: 38, text: "Menerima hasil voting keputusan rapat secara lapang dada dan ikut bertanggung jawab melaksanakannya meskipun pendapat pribadi tidak terpilih.", sila: 4 },
-            { id: 39, text: "Menjamin ketersediaan BPJS Kesehatan dengan pelayanan medis berkualitas tinggi yang dapat diakses secara merata oleh seluruh lapisan warga.", sila: 5 },
-            { id: 40, text: "Menolak provokasi gerakan separatisme yang mencoba memecah belah keutuhan NKRI dengan mendorong dialog kebangsaan yang konstruktif.", sila: 3 },
-            { id: 41, text: "Menghentikan perundungan terstruktur (bullying) di institusi pendidikan dengan menerapkan sanksi tegas serta rehabilitasi psikologis bagi korban.", sila: 2 },
-            { id: 42, text: "Masyarakat antarumat beragama di suatu desa bekerja sama menjaga keamanan tempat ibadah secara sukarela saat perayaan hari besar keagamaan masing-masing.", sila: 1 },
-            { id: 43, text: "Mengedepankan argumentasi berbasis data rasional dalam perdebatan politik daripada menyebarkan ujaran kebencian dan hoaks.", sila: 4 },
-            { id: 44, text: "Menolak pembongkaran fasilitas publik umum gratis demi pembangunan pusat perbelanjaan swasta yang hanya dinikmati kalangan tertentu.", sila: 5 },
-            { id: 45, text: "Menjaga kerukunan dan kedamaian antarkelompok masyarakat yang berbeda pilihan politik saat berlangsungnya transisi kepemimpinan nasional.", sila: 3 },
-            { id: 46, text: "Perusahaan manufaktur membayar pesangon yang adil dan memberikan jaminan pelatihan vokasi bagi pekerja yang terdampak otomatisasi mesin.", sila: 2 },
-            { id: 47, text: "Mengkritisi klaim kebenaran sepihak oleh oknum ormas tertentu yang mencoba memaksakan doktrin kelompoknya kepada warga heterogen di ruang publik.", sila: 1 },
-            { id: 48, text: "Lembaga penyelenggara pemilu menjaga independensi dan transparansi dalam proses penghitungan suara untuk menjamin integritas demokrasi.", sila: 4 },
-            { id: 49, text: "Pemerintah daerah memberikan jaminan perlindungan sosial dan keselamatan kerja bagi para pekerja sektor informal seperti pengemudi ojek online.", sila: 5 },
-            { id: 50, text: "Menggunakan bahasa Indonesia yang baik dan benar sebagai media pemersatu dalam forum diskusi yang dihadiri oleh peserta dari berbagai suku bangsa.", sila: 3 },
-            { id: 51, text: "Mengutuk aksi 'doxing' atau penyebaran data pribadi terduga pelaku kejahatan di media sosial karena melanggar asas praduga tak bersalah dan peradilan yang adil.", sila: 2 },
-            { id: 52, text: "Mengutuk keras aksi vandalisme dan perusakan simbol keagamaan milik kelompok minoritas di tengah situasi ketegangan politik komunal.", sila: 1 },
-            { id: 53, text: "Organisasi siswa menyelenggarakan pemilihan ketua OSIS secara jujur, adil, dan terbuka sebagai sarana pembelajaran demokrasi deliberatif.", sila: 4 },
-            { id: 54, text: "Membagi hasil kerja proyek kelompok secara proporsional berdasarkan kontribusi dan keahlian masing-masing anggota secara adil.", sila: 5 },
-            { id: 55, text: "Pemuda-pemudi dari berbagai daerah menyelenggarakan festival budaya nusantara untuk memperkenalkan keberagaman adat istiadat sebagai perekat bangsa.", sila: 3 },
-            { id: 56, text: "Menolak penggunaan tenaga kerja anak di bawah umur pada rantai pasokan industri pertambangan demi mempertahankan hak tumbuh kembang anak.", sila: 2 },
-            { id: 57, text: "Pengelola lembaga filantropi berbasis keagamaan mengaudit dana sumbangan publik secara transparan agar tidak disalahgunakan untuk pendanaan radikalisme.", sila: 1 },
-            { id: 58, text: "Pejabat publik mengundurkan diri sebagai bentuk tanggung jawab moral atas kegagalan eksekusi kebijakan yang merugikan publik secara luas.", sila: 4 },
-            { id: 59, text: "Pemerintah menyalurkan bantuan sosial bencana secara akuntabel tanpa melakukan manipulasi data penerima manfaat.", sila: 5 },
-            { id: 60, text: "Mengutuk segala bentuk propaganda bernuansa xenofobia yang menyudutkan warga pendatang di tengah pergaulan sosial heterogen.", sila: 3 },
-            { id: 61, text: "Aparat penegak hukum memperlakukan tahanan secara manusiawi dan menyediakan layanan medis adekuat selama proses penahanan penyelewengan.", sila: 2 },
-            { id: 62, text: "Menghormati keputusan rekan kerja yang sedang menjalankan ibadah puasa dengan tidak menyelenggarakan jamuan makan terbuka di ruang rapat utama.", sila: 1 },
-            { id: 63, text: "Menjamin kebebasan pers dalam meliput dan mengkritik kinerja pemerintah demi terciptanya keterbukaan informasi dan perimbangan kekuasaan.", sila: 4 },
-            { id: 64, text: "Menerapkan gaya hidup hemat, ramah lingkungan, dan tidak memamerkan kekayaan secara berlebihan di tengah ketimpangan sosial.", sila: 5 },
-            { id: 65, text: "Prajurit TNI dan warga perbatasan bekerja sama menjaga patok batas wilayah negara demi mempertahankan keutuhan teritorial Republik Indonesia.", sila: 3 },
-            { id: 66, text: "Aktivis kemanusiaan mendesak penghapusan stigma negatif masyarakat terhadap mantan narapidana yang telah menyelesaikan masa hukumannya.", sila: 2 },
-            { id: 67, text: "Seorang dokter tetap menjalankan tugas medis secara profesional untuk menyelamatkan nyawa pasien tanpa mempermasalahkan perbedaan keyakinan keagamaan pasien tersebut.", sila: 1 },
-            { id: 68, text: "Menolak segala bentuk nepotisme dalam pengangkatan jabatan publik di instansi pemerintahan dan mendorong seleksi berbasis meritokrasi.", sila: 4 },
-            { id: 69, text: "Lembaga hukum memberikan jaminan bantuan hukum secara gratis (pro bono) bagi masyarakat miskin yang terjerat kasus hukum.", sila: 5 },
-            { id: 70, text: "Menjaga stabilitas keamanan siber nasional dari ancaman peretasan asing yang berpotensi melumpuhkan objek vital strategis negara.", sila: 3 },
-            { id: 71, text: "Masyarakat sipil menuntut transparansi penanganan kasus pelanggaran HAM masa lalu agar para korban mendapatkan keadilan dan pemulihan nama baik.", sila: 2 },
-            { id: 72, text: "Menolak ajakan kelompok radikal yang menggunakan dalih doktrin suci untuk merusak keharmonisan toleransi antarumat di lingkungan kampus.", sila: 1 },
-            { id: 73, text: "Masyarakat sipil membentuk koalisi pengawas independen untuk memantau proses penyusunan anggaran belanja daerah agar bebas korupsi.", sila: 4 },
-            { id: 74, text: "Pemerintah pusat mendorong pemerataan fasilitas listrik dan air bersih hingga ke pedalaman agar terjadi kesejahteraan merata.", sila: 5 },
-            { id: 75, text: "Generasi muda aktif melestarikan seni pertunjukan tradisional di era disrupsi digital agar identitas budaya bangsa tidak tergerus budaya luar.", sila: 3 }
+            { id: 1, text: "Dalam menyikapi pesatnya perkembangan teknologi rekayasa genetika kecerdasan buatan, sekelompok peneliti nasional menyusun etika profesi yang menjamin pertanggungjawaban moral ilmu pengetahuan kepada Tuhan Yang Maha Esa serta keharmonisan iman.", sila: 1 },
+            { id: 2, text: "Seorang warga negara Indonesia mengkritisi regulasi penanganan pengungsi lintas negara di media sosial dengan mendesak pemerintah agar pemenuhan fasilitas kesehatan dasar dan perlindungan hukum tetap diberikan sesuai dengan asas martabat manusia universal.", sila: 2 },
+            { id: 3, text: "Pemerintah pusat mempercepat kedaulatan data digital nasional dengan mewajibkan seluruh penyedia layanan siber luar negeri menempatkan pusat data utama di dalam negeri guna menjaga stabilitas keutuhan informasi dari intervensi foreign intelijen.", sila: 3 },
+            { id: 4, text: "Kepala desa menunda pelaksanaan penataan infrastruktur wisata komersial yang berpotensi menggusur pasar tradisional, guna menyelenggarakan forum musyawarah deliberatif yang melibatkan seluruh perwakilan elemen warga secara setara.", sila: 4 },
+            { id: 5, text: "Dalam meminimalisir ketimpangan sosial di daerah perkotaan, pemerintah menetapkan skema pajak progresif atas kepemilikan aset mewah yang hasilnya didistribusikan langsung sebagai insentif subsidi angkutan umum gratis bagi pekerja informal.", sila: 5 },
+            { id: 6, text: "Kreator konten digital mengkritisi aksi eksploitasi kemiskinan (poverty porn) yang kerap dijadikan bahan monetisasi di media sosial, karena dinilai merendahkan derajat martabat serta mengabaikan kehormatan sesama warga negara.", sila: 2 },
+            { id: 7, text: "Pemerintah daerah bertindak sebagai mediator adil atas sengketa pendirian tempat ibadah di kawasan perumahan padat, dengan menegaskan kewajiban jaminan perlindungan hak berkeyakinan konstitusional tanpa tekanan intimidasi ormas.", sila: 1 },
+            { id: 8, text: "Dalam merumuskan aturan tata ruang wilayah perbatasan, majelis rapat membatalkan usulan sepihak kelompok investor berimbalan besar demi mempertahankan keputusan musyawarah mufakat yang berorientasi pada kepentingan bersama warga.", sila: 4 },
+            { id: 9, text: "Aktivis lingkungan hidup melayangkan gugatan perdata terhadap perusahaan korporasi tambang yang mencemari Daerah Aliran Sungai (DAS), guna menuntut ganti rugi pemulihan keadilan ekologis bagi hak masyarakat adat sekitar.", sila: 5 },
+            { id: 10, text: "Seorang pelajar SMA menolak narasi chauvinisme yang dilontarkan rekannya di ruang forum pemuda, dengan menegaskan bahwa keunggulan budaya lokal tidak boleh dijadikan alat untuk merendahkan keberagaman tradisi dari suku bangsa lain.", sila: 3 },
+            { id: 11, text: "Elemen masyarakat sipil secara konsisten menolak penggunaan simbol keagamaan sebagai alat propaganda politik identitas dalam kontestasi Pemilu, guna menjaga kesucian etika spiritualitas dari manipulasi kekuasaan praktis.", sila: 1 },
+            { id: 12, text: "Lembaga Bantuan Hukum memperjuangkan hak hukum kelompok disabilitas korban diskriminasi kerja di pengadilan perburuhan, agar dijamin kesetaraan hak atas perlakuan manusiawi serta akomodasi yang layak.", sila: 2 },
+            { id: 13, text: "Satgas Pangan menindak tegas praktik kartel komoditas gula yang sengaja menimbun pasokan pangan demi melambungkan harga, karena tindakan monopoli pasar tersebut mengancam daya beli dan kesejahteraan rakyat kecil.", sila: 5 },
+            { id: 14, text: "Sengketa perselisihan hasil Pemilukada diselesaikan secara tertib melalui koridor Peradilan Mahkamah Konstitusi, di mana seluruh pasangan calon berikrar menghormati dan mematuhi putusan hakim sebagai kewajiban hukum.", sila: 4 },
+            { id: 15, text: "Para akademisi dari berbagai perguruan tinggi merancang ensiklopedia bahasa daerah terancam punah di pelosok tanah air, sebagai wujud kontribusi nyata dalam merevitalisasi kekayaan kebudayaan nasional Indonesia.", sila: 3 },
+            { id: 16, text: "Pihak manajemen sekolah memfasilitasi jadwal dan ruang sarana ibadah yang inklusif bagi peserta didik dari lima agama berberda selama kegiatan kemah kebangsaan, sebagai komitmen mewujudkan toleransi inklusif di lingkungan pendidik.", sila: 1 },
+            { id: 17, text: "Pemerintah daerah merenovasi seluruh fasilitas pedestrian kota dengan melengkapi jalur pemandu keramik disabilitas dan ramp trotoar bermartabat, guna mewujudkan asas perlakuan adil tanpa diskriminasi fisik.", sila: 2 },
+            { id: 18, text: "Masyarakat sipil menolak tegas aksi penyerahan bingkisan politik uang (money politics) menjelang hari pencoblosan, seraya menegaskan bahwa suara rakyat adalah instrumen kedaulatan demokrasi yang mutlak berintegritas.", sila: 4 },
+            { id: 19, text: "Kementerian Pendidikan mengalokasikan program beasiswa Afirmasi Pendidikan Tinggi secara komprehensif bagi putra-putri di kawasan 3T, sebagai langkah strategis memutus rantai kemiskinan struktural antargenerasi.", sila: 5 },
+            { id: 20, text: "Tokoh pemuda lintas etnis mendirikan Pusat Komunikasi Kebangsaan di wilayah konflik industrial, demi mendorong ruang dialog dialogis, akulturasi budaya, serta meredam potensi disintegrasi sosial antarsuku.", sila: 3 },
+            { id: 21, text: "Seorang ulama terkemuka mengedepankan etika keagamaan yang bernuansa moderasi beragama saat menanggapi tradisi ritual lokal daerah, tanpa memberikan penghakiman sepihak yang memicu perpecahan antarumat.", sila: 1 },
+            { id: 22, text: "Pengamat hukum mendesak kepolisian untuk menghapuskan praktik intimidasi psikologis maupun kekerasan fisik dalam proses penyidikan pidana, demi menegakkan martabat manusia dan asas praduga tak bersalah.", sila: 2 },
+            { id: 23, text: "Koalisi mahasiswa menyalurkan aspirasi penolakan terhadap undang-undang bermasalah melalui mekanisme permohonan Judicial Review ke Mahkamah Konstitusi, sebagai bentuk partisipasi politik warga negara yang sah.", sila: 4 },
+            { id: 24, text: "Pemerintah pusat memprioritaskan penyelesaian proyek strategis jaringan listrik terpadu dan menara internet perbatasan, demi memastikan integrasi konektivitas ekonomi nasional terwujud merata di seluruh wilayah NKRI.", sila: 3 },
+            { id: 25, text: "Seorang pengusaha muda melaporkan omset dan membayar Pajak Penghasilan (PPh) secara akurat tanpa melakukan rekayasa laporan keuangan, sebagai komitmen tanggung jawab redistribusi keadilan sosial.", sila: 5 },
+            { id: 26, text: "Tim pengembang perangkat lunak melakukan uji audit atas algoritma kecerdasan buatan, guna memastikan bahwa proses seleksi administrasi pegawai tidak menyisipkan bias gender maupun prasangka rasial.", sila: 2 },
+            { id: 27, text: "Dalam pembahasan rancangan peraturan daerah tentang tata tertib publik, DPRD memastikan bahwa aturan yang diterbitkan bersifat netral agama serta tidak mendiskriminasi keberadaan penganut kepercayaan.", sila: 1 },
+            { id: 28, text: "Pemerintah daerah mengundang perwakilan serikat buruh dan pengusaha dalam forum public hearing terbuka sebelum memutuskan penetapan UMP, guna menjamin transparansi serta penyerapan aspirasi publik.", sila: 4 },
+            { id: 29, text: "Komunitas masyarakat secara konsisten memprioritaskan pemakaian barang manufaktur karya industri dalam negeri ketimbang produk impor, demi memperkuat kemandirian struktur ekonomi nasional.", sila: 3 },
+            { id: 30, text: "Generasi muda menolak praktik pengunduhan karya musik dan film bajakan dari situs ilegal di internet, sebagai wujud apresiasi nyata atas Hak Kekayaan Intelektual (HAKI) para kreator seni tanah air.", sila: 5 },
+            { id: 31, text: "Pemerintah daerah mengesahkan Perda Perlindungan Korban Kekerasan yang menjamin pendampingan psikologis, jaminan rehabilitasi medis, serta bantuan hukum gratis tanpa stigma sosial negatif.", sila: 2 },
+            { id: 32, text: "Para pegiat literasi digital aktif menyebarkan narasi perdamaian dan kerukunan antarumat beragama untuk memutus rantai propaganda ekstremisme yang mengancam toleransi spiritual di ruang publik digital.", sila: 1 },
+            { id: 33, text: "Para wakil rakyat di parlemen mengadakan kegiatan reses secara berkala ke pelosok daerah guna menyerap keluhan warga dan memperjuangkan anggarannya dalam rapat penyusunan APBN bersama pemerintah.", sila: 4 },
+            { id: 34, text: "Kementerian Pertanian menerapkan sistem digitalisasi kartu tani berbasis data Geospasial, guna memastikan alokasi subsidi pupuk tersalurkan secara tepat sasaran kepada para petani miskin.", sila: 5 },
+            { id: 35, text: "Kontingen atlet Indonesia berlaga dalam ajang kejuaraan olahraga dunia dengan menjunjung tinggi sportivitas, demi mengharumkan nama bangsa serta mengibarkan bendera Merah Putih di arena internasional.", sila: 3 },
+            { id: 36, text: "Organisasi relawan kemanusiaan menggalang dana serta mengirimkan tim medis darurat ke wilayah konflik luar negeri, sebagai bentuk manifestasi solidaritas persaudaraan antar-bangsa atas nama kemanusiaan.", sila: 2 },
+            { id: 37, text: "Para cendekiawan muslim dan tokoh keagamaan menyusun buku panduan etika kecerdasan buatan yang menekankan pertanggungjawaban moral ilmu pengetahuan kepada Tuhan Yang Maha Esa di era disrupsi digital.", sila: 1 },
+            { id: 38, text: "Anggota OSIS menerima dengan lapang dada hasil pemungutan suara terkait program kerja baru yang tidak sesuai dengan usulan pribadinya, seraya ikut berkomitmen penuh mensukseskan pelaksanaan kegiatan tersebut.", sila: 4 },
+            { id: 39, text: "Pemerintah pusat memperluas jangkauan perlindungan BPJS Kesehatan hingga ke pelosok pedalaman, guna menjamin hak warga negara atas jaminan fasilitas pelayanan medis yang adil dan memadai.", sila: 5 },
+            { id: 40, text: "Masyarakat pedesaan secara tegas memblokir penyebaran pamflet propaganda separatis yang mencoba memprovokasi kerukunan daerah, demi mempertahankan kedaulatan serta keutuhan Negara Kesatuan Republik Indonesia.", sila: 3 },
+            { id: 41, text: "Pihak universitas memberlakukan sanksi pemecatan tegas terhadap oknum dosen yang terbukti melakukan perundungan perpeloncoan fisik kepada mahasiswa baru, demi menegakkan etika kebebasan akademik yang bermartabat.", sila: 2 },
+            { id: 42, text: "Pemuda Katolik dan Karang Taruna Muslim secara bergantian membantu pengaturan arus lalu lintas serta mengamankan area parkir di sekitar tempat ibadah saat berlangsungnya hari besar keagamaan.", sila: 1 },
+            { id: 43, text: "Seorang kontestan debat politik membantah argumen lawannya mengunakan referensi data statistik rasional tanpa perlu melontarkan ujaran kebencian berbasis SARA atau narasi hoaks di media massa.", sila: 4 },
+            { id: 44, text: "Masyarakat sipil menolak pengalihan fungsi lahan alun-alun publik menjadi pusat perbelanjaan swasta eksklusif, demi mempertahankan keberadaan ruang terbuka hijau gratis yang dapat diakses oleh seluruh kalangan.", sila: 5 },
+            { id: 45, text: "Para pemimpin partai politik menyelenggarakan konsolidasi kebangsaan pasca-pilihan umum, guna mengimbau para pendukungnya untuk tetap menjaga persatuan nasional dan menghindari memicu ketegangan publik.", sila: 3 },
+            { id: 46, text: "Manajemen perusahaan memberikan kompensasi pesangon adil serta fasilitasi sertifikasi pelatihan vokasi gratis bagi para buruh pabrik yang terdampak restrukturisasi otomatisasi teknologi.", sila: 2 },
+            { id: 47, text: "Warga masyarakat mengkritisi tindakan oknum Ormas yang menutup paksa kegiatan kebudayaan lokal di gedung kesenian, seraya mendesak aparat hukum untuk menjamin kebebasan berekspresi tanpa intimidasi.", sila: 1 },
+            { id: 48, text: "Komisi Pemilihan Umum (KPU) mengunggah formulir rekapitulasi perhitungan suara ke dalam portal publik yang dapat diakses langsung oleh masyarakat, guna menjaga independensi dan transparansi demokrasi.", sila: 4 },
+            { id: 49, text: "Dinas Sosial menyusun regulasi bantuan jaminan kecelakaan kerja dan perlindungan hari tua khusus bagi para pekerja sektor informal seperti mitra pengemudi daring serta pedagang asongan.", sila: 5 },
+            { id: 50, text: "Dalam seminar internasional pemuda nusantara, seluruh delegasi sepakat menggunakan Bahasa Indonesia secara santun sebagai sarana lingua franca pemersatu antarsuku bangsa dari sabang sampai merauke.", sila: 3 },
+            { id: 51, text: "Aktivis hak digital mengecam aksi tindakan peretasan dan doxing atas data pribadi seorang kritikus pemerintah di media sosial, karena perbuatan tersebut melanggar privasi serta martabat hukum warga negara.", sila: 2 },
+            { id: 52, text: "Aparat kepolisian menangkap pelaku aksi vandalisme yang merusak rumah ibadah di tengah suasana memanasnya Pemilukada, guna memberikan kepastian hukum dan perlindungan terhadap kebebasan beragama.", sila: 1 },
+            { id: 53, text: "Panitia Pemilihan Ketua OSIS mengadopsi sistem e-voting transparan disertai ajang debat terbuka gagasan calon, sebagai wahana pembelajaran demokrasi deliberatif yang jujur dan adil bagi para siswa.", sila: 4 },
+            { id: 54, text: "Dalam mengerjakan tugas riset kelompok sekolah, para anggota sepakat membagi akumulasi pembagian beban kerja secara terukur berdasarkan kapasitas dan kemampuan masing-masing anggota secara adil.", sila: 5 },
+            { id: 55, text: "Pemerintah daerah memfasilitasi pagelaran Festival Budaya Nusantara tahunan yang menampilkan beragam tarian, pakaian, dan kuliner adat, sebagai ruang ekspresi penguat integrasi kebudayaan nasional.", sila: 3 },
+            { id: 56, text: "Kementerian Tenaga Kerja menindak tegas pemilik tambang liar yang mempekerjakan anak di bawah umur demi meraup keuntungan, sebagai komitmen melindungi hak tumbuh kembang dan masa depan anak.", sila: 2 },
+            { id: 57, text: "Pengelola lembaga amil zakat publik mempublikasikan laporan keuangan yang telah diaudit oleh akuntan publik di media massa, guna mencegah penyalahgunaan dana umat untuk kegiatan radikalisme.", sila: 1 },
+            { id: 58, text: "Seorang Menteri menyatakan pengunduran diri dari jabatannya sebagai wujud pertanggungjawaban moral dan etika publik atas kegagalan proyek infrastruktur utama yang merugikan keuangan negara.", sila: 4 },
+            { id: 59, text: "Pemerintah mengawasi ketat proses pendaftaran penerima bansos bencana alam agar bebas dari tindakan pemotongan dana oleh oknum perangkat lokal, demi menjamin keadilan sosial bagi korban terdampak.", sila: 5 },
+            { id: 60, text: "Kelompok karang taruna menggagalkan aksi intimidasi xenofobia terhadap warga pendatang baru di desanya, seraya menegaskan bahwa seluruh warga negara memiliki hak setara untuk tinggal di kawasan NKRI.", sila: 3 },
+            { id: 61, text: "Direktorat Jenderal Pemasyarakatan menyediakan fasilitas ruang perawat medis khusus adekuat bagi para warga binaan yang menderita sakit kronis, sebagai wujud pemenuhan aspek kemanusiaan yang beradab.", sila: 2 },
+            { id: 62, text: "Pimpinan instansi mengimbau staf kantor untuk tidak mengadakan acara jamuan makan secara terbuka di ruang umum saat bulan Ramadan, sebagai bentuk penghormatan etika atas keberagaman penganut agama.", sila: 1 },
+            { id: 63, text: "Pemerintah menjamin perlindungan hukum atas kemerdekaan pers dalam memberitakan investigasi penyelewengan pejabat publik, guna memelihara kontrol sosial dan dinamika keterbukaan informasi publik.", sila: 4 },
+            { id: 64, text: "Para pejabat pemerintahan diimbau untuk membiasakan pola hidup berkesederhanaan, ramah lingkungan, serta menolak perilaku memamerkan gaya hidup mewah (hedonisme) di tengah krisis ekonomi.", sila: 5 },
+            { id: 65, text: "TNI AD bersama masyarakat adat perbatasan rutin menggelar patroli pemantauan patok batas kedaulatan negara, sebagai manifestasi kesadaran bela negara demi mempertahankan keutuhan wilayah RI.", sila: 3 },
+            { id: 66, text: "Komnas HAM mendorong program pelatihan reintegrasi sosial bagi mantan narapidana agar mampu kembali berkarya di tengah masyarakat tanpa dipersulit oleh prasangka negatif atau diskriminasi.", sila: 2 },
+            { id: 67, text: "Seorang dokter spesialis di Rumah Sakit Umum Daerah tetap mengutamakan tindakan operasi darurat menyelamatkan nyawa pasien tanpa menanyakan afiliasi keagamaan atau latar belakang keyakinan.", sila: 1 },
+            { id: 68, text: "Panitia Seleksi Calon ASN menerapkan tes berbasis Computer Assisted Test (CAT) secara ketat, guna menutup celah kornukom nepotisme serta mewujudkan transparansi seleksi pegawai publik yang adil.", sila: 4 },
+            { id: 69, text: "Pemerintah menetapkan program bantuan konsultasi dan pendampingan hukum gratis (pro bono) bagi masyarakat miskin yang tertimpa sengketa tanah, sebagai wujud kesetaraan keadilan hukum.", sila: 5 },
+            { id: 70, text: "Badan Siber dan Sandi Negara (BSSN) meningkatkan proteksi infrastruktur siber perbankan dan data publik dari serangan hacker asing, demi mempertahankan keamanan dan kedaulatan digital nasional.", sila: 3 },
+            { id: 71, text: "Elemen akademisi mendesak pemerintah untuk menuntaskan penyelesaian kasus pelanggaran HAM berat masa lalu melalui jalur yudisial, guna memberikan rasa keadilan hukum dan pemulihan nama baik korban.", sila: 2 },
+            { id: 72, text: "Pihak rektorat universitas memblokir penyebaran pamflet radikal berkedok kajian suci yang mengkampanyekan pembubaran ideologi Pancasila, demi menjaga iklim akademik dan kebinekaan kampus.", sila: 1 },
+            { id: 73, text: "Masyarakat sipil membentuk koalisi pengawas independen guna memantau transparansi alokasi dana desa di daerahnya, demi memastikan bahwa dana publik dimanfaatkan penuh untuk pembangunan desa.", sila: 4 },
+            { id: 74, text: "Pemerintah menginstruksikan percepatan elektrifikasi saluran listrik mandiri hingga ke desa terpencil, demi mewujudkan pemerataan pembangunan dan keadilan sosial di seluruh penjuru pelosok tanah air.", sila: 5 },
+            { id: 75, text: "Generasi muda mendirikan sanggar kebudayaan berbasis digital guna mendokumentasikan seni pertunjukan daerah di YouTube, sebagai pilar pendukung agar identitas jati diri bangsa tetap kokoh.", sila: 3 }
         ];
 
         const SILA_INFO = [
@@ -609,8 +625,8 @@
         let dpr = 1;
         let width = 0, height = 0;
         let hp = 100;
-        let score = 0;
-        let combo = 1;
+        let score = 0; // HANYA MENGHITUNG JUMLAH BENAR (0 s/d 75)
+        let streak = 0;
         let casesSolved = 0;
         let activeEggIdx = -1;
         let draggedItem = null;
@@ -618,8 +634,8 @@
         let isGameOver = false;
         let isGameStarted = false;
 
-        const EGG_TIMER_MAX = 15.0;  // Timer baca/geser telur
-        const IDLE_TIMER_MAX = 10.0; // Timer inaktivitas (jika diam saja)
+        const EGG_TIMER_MAX = 15.0;  // Timer baca/geser bintang
+        const IDLE_TIMER_MAX = 10.0; // Timer inaktivitas
         let idleTimer = IDLE_TIMER_MAX;
 
         const pointer = { x: 0, y: 0, isDown: false, justPressed: false };
@@ -628,6 +644,7 @@
         let clouds = [];
         let particles = [];
         let floatTexts = [];
+        let streakPopups = []; // NOTIFIKASI STREAK SUPER ATRAKTIF
         let screenShakeTime = 0;
 
         function resizeCanvas() {
@@ -698,7 +715,7 @@
                     y: gridY + (Math.random() - 0.5) * 6,
                     vx: (Math.random() - 0.5) * 50,
                     vy: (Math.random() - 0.5) * 45,
-                    radius: Math.min(20, Math.max(14, width / 55)),
+                    radius: Math.min(22, Math.max(16, width / 50)),
                     scenario: scenario,
                     active: true,
                     pulse: Math.random() * Math.PI,
@@ -745,15 +762,89 @@
 
         window.addEventListener('touchend', () => pointer.isDown = false);
 
+        // TRIGGER NOTIFIKASI STREAK MEWAH DENGAN DURASI LEBIH LAMA
+        function triggerStreakBanner(currentStreak) {
+            let title = "";
+            let subText = "ANALISIS PANCASILA TEPAT!";
+            let gradStart = "#F59E0B";
+            let gradEnd = "#EF4444";
+
+            if (currentStreak === 3) {
+                title = "🔥 3x STREAK!";
+                subText = "ANALISIS MEMBARA!";
+                gradStart = "#FF512F"; gradEnd = "#DD2476";
+            } else if (currentStreak === 5) {
+                title = "⚡ 5x STREAK COMBO!";
+                subText = "TANGKAS & SANGAT TEPAT!";
+                gradStart = "#8A2387"; gradEnd = "#E94057";
+            } else if (currentStreak === 10) {
+                title = "🌟 10x STREAK MASTER!";
+                subText = "CENDEKIAWAN PANCASILA SEJATI!";
+                gradStart = "#11998e"; gradEnd = "#38ef7d";
+            } else if (currentStreak === 15) {
+                title = "👑 15x STREAK LEGEND!";
+                subText = "MAHA BINTANG IDEOLOGI BANGSA!";
+                gradStart = "#FF007F"; gradEnd = "#7928CA";
+            } else if (currentStreak > 15 && currentStreak % 5 === 0) {
+                title = `🚀 ${currentStreak}x STREAK UNSTOPPABLE!`;
+                subText = "PERTANAHAN ANALISIS TAK TERKAPALKAN!";
+                gradStart = "#00F2FE"; gradEnd = "#4FACFE";
+            }
+
+            if (title) {
+                audio.playStreakSound();
+                triggerScreenShake(0.35);
+                spawnFireworks(width / 2, height / 3.5); // Semburan Kembang Api Melimpah
+
+                streakPopups.push({
+                    title: title,
+                    subText: subText,
+                    x: width / 2,
+                    y: height / 3.2,
+                    scale: 0.1,
+                    targetScale: 1.0,
+                    opacity: 1.0,
+                    life: 3.2, // Tampil Lebih Lama (3.2 Detik)
+                    gradStart: gradStart,
+                    gradEnd: gradEnd
+                });
+            }
+        }
+
+        // SEMBURAN KEMBANG API & CONFETTI MELIMPAH (JATUH SAMPAI DASAR)
+        function spawnFireworks(x, y) {
+            const colors = ['#FBBF24', '#EF4444', '#10B981', '#3B82F6', '#EC4899', '#A855F7', '#38BDF8'];
+            const count = 90; // Partikel Banyak & Sangat Luas
+
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 380 + 80;
+                particles.push({
+                    x: x, y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - Math.random() * 150, // Hamburan Tinggi ke Atas
+                    gravity: Math.random() * 250 + 150, // Gravitasi Memastikan Jatuh Sampai Dasar
+                    drag: 0.98,
+                    life: Math.random() * 1.5 + 2.0, // Masa Hidup Lebih Lama
+                    maxLife: 3.5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 7 + 4,
+                    isConfetti: Math.random() > 0.4
+                });
+            }
+        }
+
         function spawnBurst(x, y, color, count = 25) {
             for (let i = 0; i < count; i++) {
                 const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 200 + 30;
+                const speed = Math.random() * 220 + 40;
                 particles.push({
                     x: x, y: y,
                     vx: Math.cos(angle) * speed,
                     vy: Math.sin(angle) * speed,
-                    life: 1.0, decay: Math.random() * 1.5 + 0.8,
+                    gravity: 120,
+                    drag: 0.96,
+                    life: 1.2,
                     color: color, size: Math.random() * 5 + 3
                 });
             }
@@ -770,8 +861,8 @@
         function updateHUD() {
             document.getElementById('hp-text').innerText = `${Math.max(0, Math.round(hp))}%`;
             document.getElementById('hp-bar').style.width = `${Math.max(0, hp)}%`;
-            document.getElementById('score-text').innerText = score;
-            document.getElementById('combo-text').innerText = `x${combo}`;
+            document.getElementById('score-text').innerText = `${score} / 75`;
+            document.getElementById('combo-text').innerText = `x${streak}`;
 
             if (hp <= 0 && !isGameOver) {
                 endGame(false);
@@ -799,6 +890,35 @@
             lines.forEach((line, index) => {
                 context.fillText(line, x, startY + index * lineHeight);
             });
+        }
+
+        function drawStar(ctx, radius, isSelected) {
+            ctx.shadowColor = isSelected ? 'rgba(96, 165, 250, 0.9)' : 'rgba(251, 191, 36, 0.7)';
+            ctx.shadowBlur = isSelected ? 18 : 8;
+
+            const gradient = ctx.createRadialGradient(0, 0, 2, 0, 0, radius);
+            if (isSelected) {
+                gradient.addColorStop(0, '#FFFFFF');
+                gradient.addColorStop(0.5, '#60A5FA');
+                gradient.addColorStop(1, '#1D4ED8');
+            } else {
+                gradient.addColorStop(0, '#FFFBEB');
+                gradient.addColorStop(0.4, '#FBBF24');
+                gradient.addColorStop(1, '#D97706');
+            }
+
+            ctx.fillStyle = gradient;
+            ctx.strokeStyle = isSelected ? '#3B82F6' : '#B45309';
+            ctx.lineWidth = isSelected ? 3 : 1.5;
+
+            ctx.beginPath();
+            for (let i = 0; i < 5; i++) {
+                ctx.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * radius, -Math.sin((18 + i * 72) * Math.PI / 180) * radius);
+                ctx.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * (radius * 0.48), -Math.sin((54 + i * 72) * Math.PI / 180) * (radius * 0.48));
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
         }
 
         let lastTime = performance.now();
@@ -847,7 +967,7 @@
 
             // LOGIKA TIMER GANDA
             if (activeEggIdx !== -1 && eggs[activeEggIdx] && eggs[activeEggIdx].active) {
-                // Telur sedang Dipegang (15 Detik)
+                // Bintang sedang Dipegang (15 Detik)
                 const currentEgg = eggs[activeEggIdx];
                 currentEgg.timer -= dt;
 
@@ -858,18 +978,18 @@
                 lastTimerSec = currentSec;
 
                 if (bombBanner) {
-                    if (bombLabel) bombLabel.innerText = "ANALISIS SOAL";
+                    if (bombLabel) bombLabel.innerText = "ANALISIS KASUS KELAS 12";
                     if (bombText) bombText.innerText = `${Math.max(0, currentEgg.timer).toFixed(1)}s`;
                 }
 
                 if (currentEgg.timer <= 0) {
                     currentEgg.active = false;
                     hp -= 15;
-                    combo = 1;
+                    streak = 0; // Reset streak
                     audio.playExplosion();
                     triggerScreenShake();
                     spawnBurst(currentEgg.x, currentEgg.y, '#EF4444', 35);
-                    addFloatText(`⏱️ WAKTU TELUR HABIS! (-15% HP)`, currentEgg.x, currentEgg.y - 30, '#DC2626');
+                    addFloatText(`⏱️ WAKTU BINTANG HABIS! (-15% HP)`, currentEgg.x, currentEgg.y - 30, '#DC2626');
                     
                     draggedItem = null;
                     activeEggIdx = -1;
@@ -890,17 +1010,17 @@
                 lastTimerSec = currentSec;
 
                 if (bombBanner) {
-                    if (bombLabel) bombLabel.innerText = "SEGERA PILIH TELUR";
+                    if (bombLabel) bombLabel.innerText = "SEGERA PILIH BINTANG";
                     if (bombText) bombText.innerText = `${Math.max(0, idleTimer).toFixed(1)}s`;
                 }
 
                 if (idleTimer <= 0) {
                     hp -= 10;
-                    combo = 1;
+                    streak = 0; // Reset streak
                     audio.playExplosion();
                     triggerScreenShake();
                     spawnBurst(width / 2, height / 2, '#EF4444', 30);
-                    addFloatText(`💣 LALAI MEMILIH TELUR! (-10% HP)`, width / 2, height / 2 - 30, '#DC2626');
+                    addFloatText(`💣 LALAI MEMILIH BINTANG! (-10% HP)`, width / 2, height / 2 - 30, '#DC2626');
 
                     idleTimer = IDLE_TIMER_MAX;
                     updateHUD();
@@ -918,11 +1038,13 @@
                         if (dist < cloud.radius * 1.5) {
                             if (egg.scenario.sila === cloud.id) {
                                 egg.active = false;
-                                score += 100 * combo;
-                                combo++;
+                                score += 1; // HANYA MENGHITUNG JUMLAH BENAR
+                                streak++;
                                 casesSolved++;
-                                spawnBurst(cloud.x, cloud.y, cloud.color, 30);
-                                addFloatText(`+${100 * combo} SKOR!`, cloud.x, cloud.y - 40, '#10B981');
+
+                                triggerStreakBanner(streak);
+                                spawnBurst(cloud.x, cloud.y, cloud.color, 35);
+                                addFloatText(`+1 BENAR!`, cloud.x, cloud.y - 40, '#10B981');
                                 audio.playCorrect();
 
                                 if (eggs.every(e => !e.active)) {
@@ -930,7 +1052,7 @@
                                 }
                             } else {
                                 hp -= 10;
-                                combo = 1;
+                                streak = 0; // Reset streak
                                 spawnBurst(cloud.x, cloud.y, '#EF4444', 20);
                                 addFloatText(`SALAH ANALISIS! (-10% HP)`, cloud.x, cloud.y - 40, '#EF4444');
                                 audio.playError();
@@ -968,17 +1090,42 @@
                 }
             });
 
+            // LOGIKA JATUH KEMBANG API & CONFETTI (GRAVITASI FISIKA LENGKAP)
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
-                p.x += p.vx * dt; p.y += p.vy * dt;
-                p.life -= p.decay * dt;
-                if (p.life <= 0) particles.splice(i, 1);
+                p.vx *= p.drag || 0.98;
+                p.vy *= p.drag || 0.98;
+                if (p.gravity) p.vy += p.gravity * dt; // Gravitasi menarik jatuh
+
+                p.x += p.vx * dt;
+                p.y += p.vy * dt;
+                p.life -= dt;
+
+                if (p.life <= 0 || p.y > height + 50) particles.splice(i, 1);
             }
 
             for (let i = floatTexts.length - 1; i >= 0; i--) {
                 const ft = floatTexts[i];
                 ft.y += ft.vy * dt; ft.life -= dt;
                 if (ft.life <= 0) floatTexts.splice(i, 1);
+            }
+
+            // Update Animasi Notifikasi Pop-up Streak (Lebih Halus & Perlahan)
+            for (let i = streakPopups.length - 1; i >= 0; i--) {
+                const sp = streakPopups[i];
+                sp.life -= dt;
+
+                // Animasi Pembesaran Latar Perlahan (Smooth Interpolation)
+                if (sp.scale < sp.targetScale) {
+                    sp.scale += (sp.targetScale - sp.scale) * 6 * dt;
+                } else {
+                    sp.scale = sp.targetScale + Math.sin(sp.life * 4) * 0.02; // Pulsating Halus
+                }
+
+                if (sp.life < 0.8) {
+                    sp.opacity = sp.life / 0.8;
+                }
+                if (sp.life <= 0) streakPopups.splice(i, 1);
             }
         }
 
@@ -1004,7 +1151,7 @@
                 }
             }
 
-            // Keranjang Sila (Target Clouds)
+            // 1. Keranjang Sila (Target Baskets)
             clouds.forEach((cloud) => {
                 ctx.save();
                 ctx.translate(cloud.x, cloud.y);
@@ -1039,90 +1186,49 @@
                 ctx.restore();
             });
 
-            // Telur Soal (POLOS TANPA ANGKA)
+            // 2. Bintang Pancasila (Tanpa Angka)
             eggs.forEach((egg, idx) => {
                 if (!egg.active) return;
 
                 ctx.save();
                 ctx.translate(egg.x, egg.y);
 
-                const scale = 1 + Math.sin(egg.pulse) * 0.05;
+                const scale = 1 + Math.sin(egg.pulse) * 0.06;
                 ctx.scale(scale, scale);
 
                 if (activeEggIdx === idx) {
                     const timerPercent = Math.max(0, egg.timer / egg.maxTimer);
                     ctx.beginPath();
-                    ctx.arc(0, 0, egg.radius * 1.4, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * timerPercent));
+                    ctx.arc(0, 0, egg.radius * 1.45, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * timerPercent));
                     ctx.strokeStyle = timerPercent < 0.3 ? '#EF4444' : '#F59E0B';
                     ctx.lineWidth = 4;
                     ctx.stroke();
                 }
 
-                ctx.fillStyle = 'rgba(0,0,0,0.3)';
-                ctx.beginPath();
-                ctx.ellipse(0, egg.radius * 0.9, egg.radius * 0.7, 5, 0, 0, Math.PI * 2);
-                ctx.fill();
-
-                const eggGradient = ctx.createLinearGradient(-egg.radius, -egg.radius, egg.radius, egg.radius);
-                eggGradient.addColorStop(0, '#FEF3C7');
-                eggGradient.addColorStop(1, '#F59E0B');
-
-                ctx.fillStyle = eggGradient;
-                ctx.strokeStyle = activeEggIdx === idx ? '#3B82F6' : '#D97706';
-                ctx.lineWidth = activeEggIdx === idx ? 4 : 2;
-
-                ctx.beginPath();
-                ctx.ellipse(0, 0, egg.radius * 0.85, egg.radius, 0, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.stroke();
+                drawStar(ctx, egg.radius, activeEggIdx === idx);
 
                 ctx.restore();
-
-                // Banner Baca Soal HOTS (TANPA KETERANGAN NOMOR SOAL)
-                if (activeEggIdx === idx) {
-                    ctx.save();
-                    const isMobile = width < 600;
-                    const fontSize = isMobile ? 11 : 13;
-                    ctx.font = `bold ${fontSize}px Plus Jakarta Sans, sans-serif`;
-                    
-                    const fullText = egg.scenario.text;
-                    const boxW = Math.min(width - 20, 580);
-                    const boxH = isMobile ? 85 : 70;
-                    const boxX = (width - boxW) / 2;
-                    const boxY = 42;
-
-                    ctx.fillStyle = 'rgba(15, 23, 42, 0.96)';
-                    ctx.strokeStyle = '#F59E0B';
-                    ctx.lineWidth = 2.5;
-                    ctx.shadowColor = 'rgba(0,0,0,0.6)';
-                    ctx.shadowBlur = 12;
-
-                    ctx.beginPath();
-                    ctx.roundRect(boxX, boxY, boxW, boxH, 14);
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.fillStyle = '#FEF3C7';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-
-                    wrapText(ctx, fullText, boxX + boxW / 2, boxY + boxH / 2, boxW - 24, fontSize * 1.3);
-                    ctx.restore();
-                }
             });
 
-            // Partikel
+            // 3. Partikel Animation (Fireworks & Confetti Jatuh)
             particles.forEach(p => {
                 ctx.save();
-                ctx.globalAlpha = Math.max(0, p.life);
+                ctx.globalAlpha = Math.max(0, Math.min(1, p.life));
                 ctx.fillStyle = p.color;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
+
+                if (p.isConfetti) {
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.life * 6);
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.6);
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
                 ctx.restore();
             });
 
-            // Floating Text
+            // 4. Floating Text
             floatTexts.forEach(ft => {
                 ctx.save();
                 ctx.globalAlpha = Math.max(0, ft.life);
@@ -1133,11 +1239,92 @@
                 ctx.restore();
             });
 
+            // 5. BANNER POPUP NOTIFIKASI STREAK MEWAH & JELAS
+            streakPopups.forEach(sp => {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, sp.opacity);
+                ctx.translate(sp.x, sp.y);
+                ctx.scale(sp.scale, sp.scale);
+
+                const isMobile = width < 600;
+                const popW = isMobile ? Math.min(width - 24, 400) : 520;
+                const popH = isMobile ? 70 : 84;
+
+                // Glowing Background Outer Glow
+                ctx.shadowColor = sp.gradStart;
+                ctx.shadowBlur = 45;
+
+                // Background Gradient Card
+                const grad = ctx.createLinearGradient(-popW / 2, 0, popW / 2, 0);
+                grad.addColorStop(0, sp.gradStart);
+                grad.addColorStop(1, sp.gradEnd);
+
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.98)';
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 4.5;
+
+                ctx.beginPath();
+                ctx.roundRect(-popW / 2, -popH / 2, popW, popH, 24);
+                ctx.fill();
+                ctx.stroke();
+
+                // Judul Utama Notifikasi Streak
+                ctx.font = `800 ${isMobile ? 19 : 25}px Fredoka, cursive`;
+                ctx.fillStyle = '#FFFFFF';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(0,0,0,0.9)';
+                ctx.shadowBlur = 8;
+                ctx.fillText(sp.title, 0, -popH * 0.18);
+
+                // Sub-teks Deskripsi Notifikasi
+                ctx.font = `700 ${isMobile ? 11 : 13}px Plus Jakarta Sans, sans-serif`;
+                ctx.fillStyle = '#FEF3C7';
+                ctx.fillText(sp.subText, 0, popH * 0.22);
+
+                ctx.restore();
+            });
+
+            // 6. BANNER SOAL HOTS KELAS 12 (POSISI PRESISI DI TENGAH LAYAR & DI DEPAN SEMUA BINTANG)
+            if (activeEggIdx !== -1 && eggs[activeEggIdx] && eggs[activeEggIdx].active) {
+                const activeEgg = eggs[activeEggIdx];
+                ctx.save();
+                
+                const isMobile = width < 600;
+                const fontSize = isMobile ? 12 : 14;
+                ctx.font = `600 ${fontSize}px Plus Jakarta Sans, sans-serif`;
+                
+                const fullText = activeEgg.scenario.text;
+                const boxW = Math.min(width - 24, 620);
+                const boxH = isMobile ? 125 : 100;
+                
+                const boxX = (width - boxW) / 2;
+                const boxY = (height - boxH) / 2;
+
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.98)';
+                ctx.strokeStyle = '#F59E0B';
+                ctx.lineWidth = 3;
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+                ctx.shadowBlur = 30;
+
+                ctx.beginPath();
+                ctx.roundRect(boxX, boxY, boxW, boxH, 18);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.fillStyle = '#FEF3C7';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                wrapText(ctx, fullText, boxX + boxW / 2, boxY + boxH / 2, boxW - 32, fontSize * 1.38);
+                ctx.restore();
+            }
+
             ctx.restore();
         }
 
         function resetGame() {
-            hp = 100; score = 0; combo = 1; casesSolved = 0;
+            hp = 100; score = 0; streak = 0; casesSolved = 0;
             isGameOver = false; activeEggIdx = -1; draggedItem = null;
             idleTimer = IDLE_TIMER_MAX;
 
@@ -1156,11 +1343,13 @@
             if (victory) audio.playVictory();
             else audio.playGameOver();
 
+            const accuracy = Math.round((score / 75) * 100);
+
             document.getElementById('end-title').innerText = victory ? "Kemenangan Kritis!" : "Game Selesai!";
-            document.getElementById('end-subtitle').innerText = victory ? "Kamu menuntaskan seluruh 75 analisis HOTS Pancasila!" : "Tingkatkan lagi analisis kritis nilai Pancasila!";
+            document.getElementById('end-subtitle').innerText = victory ? "Kamu menuntaskan seluruh 75 analisis HOTS Pancasila Kelas XII!" : "Tingkatkan lagi analisis kritis Pancasila Kelas XII!";
             document.getElementById('end-icon').innerText = victory ? "🏆" : "🕊️";
-            document.getElementById('end-score').innerText = score;
-            document.getElementById('end-cases').innerText = `${casesSolved} / 75`;
+            document.getElementById('end-score').innerText = `${score} / 75 Solved`;
+            document.getElementById('end-accuracy').innerText = `${accuracy}%`;
 
             const endPlayerInfo = document.getElementById('end-player-info');
             if (endPlayerInfo) {
@@ -1168,8 +1357,8 @@
             }
 
             let rank = "Pengamal Pancasila";
-            if (score >= 5000) rank = "Begawan Ideologi Bangsa 🌟";
-            else if (score >= 2500) rank = "Cendekiawan Pancasila Sejati 🇮🇩";
+            if (score >= 65) rank = "Begawan Ideologi Bangsa 🌟";
+            else if (score >= 45) rank = "Cendekiawan Pancasila Sejati 🇮🇩";
             document.getElementById('end-rank').innerText = rank;
 
             document.getElementById('modal-end').classList.remove('hidden');
@@ -1179,7 +1368,7 @@
                 nama: playerData.nama,
                 kelas: playerData.kelas,
                 skor: score,
-                kasus: `${casesSolved}/75`,
+                kasus: `${score}/75`,
                 gelar: rank
             });
         }
