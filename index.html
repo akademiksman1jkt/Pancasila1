@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Meta Tags Mencegah Cache Browser di GitHub Pages -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <title>Petualangan Telur Pancasila</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,7 +67,7 @@
             </div>
             <div>
                 <h1 class="font-game text-sm md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Telur Pancasila</h1>
-                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal + Timer Inaktivitas)</p>
+                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Edisi Kritis HOTS Super (75 Soal Acak)</p>
             </div>
         </div>
 
@@ -112,7 +118,7 @@
         <div class="pointer-events-none absolute inset-x-0 top-2 flex flex-col items-center justify-center px-2 z-10">
             <div id="banner-bomb" class="px-3.5 py-1.5 rounded-full bg-red-600/95 border-2 border-yellow-400 text-white text-[11px] md:text-sm font-black flex items-center gap-2 shadow-2xl bounce-soft transition-all duration-300">
                 <i class="fa-solid fa-stopwatch text-yellow-300 text-base animate-spin"></i>
-                <span><span id="bomb-status-label" class="text-yellow-200">WAKTU PILIH TELUR</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
+                <span><span id="bomb-status-label" class="text-yellow-200">SEGERA PILIH TELUR</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
             </div>
         </div>
     </main>
@@ -129,7 +135,7 @@
             </div>
 
             <h1 class="font-game text-xl md:text-3xl text-yellow-300 mb-0.5 font-bold tracking-wide">Petualangan Telur Pancasila</h1>
-            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS (75 Soal Acak)</p>
+            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Tantangan Kritis HOTS (75 Kasus Acak)</p>
 
             <div class="w-full bg-indigo-900/80 p-3.5 rounded-2xl border border-indigo-700/60 mb-3 text-left">
                 <div class="mb-2.5">
@@ -152,7 +158,7 @@
             </div>
 
             <p class="text-xs text-indigo-200 mb-3 leading-relaxed px-1">
-                ⚠️ <span class="text-yellow-300 font-bold">Aturan Baru:</span> Kamu punya waktu <span class="text-red-400 font-bold">10 Detik</span> untuk segera memilih telur. Jika diam saja, bom akan meledak! Setelah telur dipecahkan/dipegang, selesaikan analisis dalam <span class="text-yellow-300 font-bold">15 Detik</span>.
+                ⚠️ <span class="text-yellow-300 font-bold">Aturan Main:</span> Kamu memiliki <span class="text-red-400 font-bold">10 Detik</span> untuk memilih telur sebelum bom meledak! Setelah telur dipilih, tuntaskan analisis dalam <span class="text-yellow-300 font-bold">15 Detik</span>.
             </p>
 
             <button id="btn-start-game" class="w-full py-3 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 text-indigo-950 font-bold font-game text-base md:text-lg rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -191,7 +197,7 @@
                 </div>
 
                 <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">i🐂</span>
+                    <span class="text-2xl">🐂</span>
                     <div><strong class="text-amber-300 block font-game">Sila 4: Kerakyatan yang Dipimpin...</strong>Musyawarah deliberatif, penolakan tirani, anti-politik uang, & partisipasi politik sah.</div>
                 </div>
 
@@ -241,8 +247,21 @@
         </div>
     </div>
 
+    <!-- SKRIP AUTO-FORCE REFRESH (GITHUB PAGES VERSION CONTROL) -->
     <script>
-        // Web Audio Synthesizer
+        const APP_VERSION = "1.0.1"; 
+
+        (function forceRefreshOnUpdate() {
+            const savedVersion = localStorage.getItem('pancasila_app_version');
+            if (savedVersion !== APP_VERSION) {
+                localStorage.setItem('pancasila_app_version', APP_VERSION);
+                window.location.reload(true);
+            }
+        })();
+    </script>
+
+    <!-- AUDIO ENGINE -->
+    <script>
         class SoundSystem {
             constructor() {
                 this.ctx = null;
@@ -450,6 +469,7 @@
         const audio = new SoundSystem();
     </script>
 
+    <!-- GAME LOGIC ENGINE -->
     <script>
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyiK4nbQOu4S8wQl9uUHkF06ad3gaDTMUVil9mal758XpCpzBoVcDXRkcHlWYS4r4CIzQ/exec";
 
@@ -496,7 +516,7 @@
             .catch(err => console.error('Gagal mengirim data:', err));
         }
 
-        // 75 SKENARIO HOTS PANCASILA (ACAK SILA)
+        // 75 SKENARIO HOTS PANCASILA (SOAL ACAK)
         const SCENARIOS = [
             { id: 1, text: "Seorang ilmuwan bioteknologi menemukan teknologi rekayasa genetika modern yang berpotensi memicu perdebatan moral agama. Ia memutuskan menyelenggarakan forum dialog teologis inklusif guna menjamin etika kemanusiaan yang selaras dengan nilai keimanan.", sila: 1 },
             { id: 2, text: "Memperjuangkan hak perlindungan data pribadi dan privasi bagi pengungsi lintas negara sebagai wujud pengakuan terhadap martabat manusia universal.", sila: 2 },
@@ -598,8 +618,8 @@
         let isGameOver = false;
         let isGameStarted = false;
 
-        const EGG_TIMER_MAX = 15.0;  // Waktu baca & geser telur
-        const IDLE_TIMER_MAX = 10.0; // Waktu tunggu memilih telur (Inaktivitas)
+        const EGG_TIMER_MAX = 15.0;  // Timer baca/geser telur
+        const IDLE_TIMER_MAX = 10.0; // Timer inaktivitas (jika diam saja)
         let idleTimer = IDLE_TIMER_MAX;
 
         const pointer = { x: 0, y: 0, isDown: false, justPressed: false };
@@ -814,7 +834,7 @@
                     if (dist < egg.radius * 1.8) {
                         draggedItem = { type: 'egg', index: idx };
                         activeEggIdx = idx;
-                        idleTimer = IDLE_TIMER_MAX; // Reset idle timer saat telur dipilih
+                        idleTimer = IDLE_TIMER_MAX;
                         audio.playPop();
                     }
                 });
@@ -825,9 +845,9 @@
             const bombText = document.getElementById('bomb-timer-text');
             const bombLabel = document.getElementById('bomb-status-label');
 
-            // SISTEM TIMER GANDA (Inaktivitas vs Telur Aktif)
+            // LOGIKA TIMER GANDA
             if (activeEggIdx !== -1 && eggs[activeEggIdx] && eggs[activeEggIdx].active) {
-                // Telur sedang Dipecahkan / Dipegang (15 Detik)
+                // Telur sedang Dipegang (15 Detik)
                 const currentEgg = eggs[activeEggIdx];
                 currentEgg.timer -= dt;
 
@@ -838,7 +858,7 @@
                 lastTimerSec = currentSec;
 
                 if (bombBanner) {
-                    if (bombLabel) bombLabel.innerText = `ANALISIS SOAL #${currentEgg.scenario.id}`;
+                    if (bombLabel) bombLabel.innerText = "ANALISIS SOAL";
                     if (bombText) bombText.innerText = `${Math.max(0, currentEgg.timer).toFixed(1)}s`;
                 }
 
@@ -861,7 +881,7 @@
                     }
                 }
             } else {
-                // Siswa Diam Saja / Tidak Memilih Telur (Inaktivitas 10 Detik)
+                // Siswa Diam Saja (Inaktivitas 10 Detik)
                 idleTimer -= dt;
                 const currentSec = Math.floor(idleTimer);
                 if (currentSec !== lastTimerSec && currentSec <= 3 && currentSec >= 0) {
@@ -922,7 +942,7 @@
                 }
                 draggedItem = null;
                 activeEggIdx = -1;
-                idleTimer = IDLE_TIMER_MAX; // Reset idle timer saat telur dilepas
+                idleTimer = IDLE_TIMER_MAX;
             }
 
             if (pointer.isDown && draggedItem) {
@@ -989,13 +1009,11 @@
                 ctx.save();
                 ctx.translate(cloud.x, cloud.y);
 
-                // Glow Ring
                 ctx.fillStyle = cloud.color + '33';
                 ctx.beginPath();
                 ctx.roundRect(-cloud.w / 2 - 4, -cloud.h / 2 - 4, cloud.w + 8, cloud.h + 8, 18);
                 ctx.fill();
 
-                // Main Basket Box
                 ctx.fillStyle = '#1e1b4b';
                 ctx.strokeStyle = cloud.color;
                 ctx.lineWidth = 3;
@@ -1004,7 +1022,6 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // Emoji Icon
                 const isMobile = width < 600;
                 const iconSize = isMobile ? 26 : 34;
                 ctx.font = `${iconSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
@@ -1012,7 +1029,6 @@
                 ctx.textBaseline = 'middle';
                 ctx.fillText(cloud.symbol, 0, -cloud.h * 0.18);
 
-                // Text "Sila X"
                 const fontSize = isMobile ? 12 : 14;
                 ctx.font = `bold ${fontSize}px Fredoka, cursive`;
                 ctx.fillStyle = '#FFFFFF';
@@ -1023,7 +1039,7 @@
                 ctx.restore();
             });
 
-            // Telur Soal
+            // Telur Soal (POLOS TANPA ANGKA)
             eggs.forEach((egg, idx) => {
                 if (!egg.active) return;
 
@@ -1033,7 +1049,6 @@
                 const scale = 1 + Math.sin(egg.pulse) * 0.05;
                 ctx.scale(scale, scale);
 
-                // Indikator Waktu Telur Aktif
                 if (activeEggIdx === idx) {
                     const timerPercent = Math.max(0, egg.timer / egg.maxTimer);
                     ctx.beginPath();
@@ -1061,22 +1076,16 @@
                 ctx.fill();
                 ctx.stroke();
 
-                ctx.font = 'bold 10px Fredoka, cursive';
-                ctx.fillStyle = '#78350F';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(`${egg.scenario.id}`, 0, 0);
-
                 ctx.restore();
 
-                // Banner Baca Soal HOTS
+                // Banner Baca Soal HOTS (TANPA KETERANGAN NOMOR SOAL)
                 if (activeEggIdx === idx) {
                     ctx.save();
                     const isMobile = width < 600;
                     const fontSize = isMobile ? 11 : 13;
                     ctx.font = `bold ${fontSize}px Plus Jakarta Sans, sans-serif`;
                     
-                    const fullText = `[Soal #${egg.scenario.id}] ${egg.scenario.text}`;
+                    const fullText = egg.scenario.text;
                     const boxW = Math.min(width - 20, 580);
                     const boxH = isMobile ? 85 : 70;
                     const boxX = (width - boxW) / 2;
