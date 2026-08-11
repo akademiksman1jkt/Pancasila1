@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Meta Tags Mencegah Cache Browser di GitHub Pages -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>Kuis Implementasi Pancasila</title>
-    <!-- Tailwind CSS -->
+    <title>Petualangan Bintang Pancasila HOTS Kelas 12</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -25,240 +21,208 @@
             touch-action: manipulation;
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
         }
-        .font-game {
-            font-family: 'Fredoka', cursive, sans-serif;
-        }
-        canvas {
-            touch-action: none;
-        }
-        .bounce-soft {
-            animation: bounceSoft 2s infinite;
-        }
+        .font-game { font-family: 'Fredoka', cursive, sans-serif; }
+        canvas { touch-action: none; }
+        .bounce-soft { animation: bounceSoft 2s infinite; }
         @keyframes bounceSoft {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-4px); }
         }
-        .pulse-glow {
-            animation: pulseGlow 1.5s infinite alternate;
-        }
+        .pulse-glow { animation: pulseGlow 1.5s infinite alternate; }
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
-            100% { box-shadow: 0 0 30px rgba(234, 179, 8, 0.9); }
+            0% { box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
+            100% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.8); }
         }
-        .spin-slow {
-            animation: spin 12s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+        .spin-slow { animation: spin 12s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 10px; }
     </style>
 </head>
 <body class="h-screen w-screen overflow-hidden flex flex-col text-white select-none">
 
     <!-- Header HUD -->
-    <header class="bg-slate-950/90 backdrop-blur-md border-b border-indigo-700/60 px-3 py-2 flex flex-wrap items-center justify-between z-20 shadow-xl gap-2">
-        <div class="flex items-center gap-2">
-            <div class="w-9 h-9 md:w-11 md:h-11 rounded-2xl bg-gradient-to-tr from-amber-400 to-yellow-200 text-indigo-950 flex items-center justify-center font-game font-bold text-lg md:text-2xl shadow-md border-2 border-yellow-300">
+    <header class="bg-slate-950/90 backdrop-blur-md border-b border-indigo-700/60 px-2.5 py-1.5 flex items-center justify-between z-20 shadow-xl gap-1.5">
+        <div class="flex items-center gap-1.5">
+            <div class="w-8 h-8 md:w-11 md:h-11 rounded-xl bg-gradient-to-tr from-amber-400 to-yellow-200 text-indigo-950 flex items-center justify-center font-game font-bold text-base md:text-2xl shadow border border-yellow-300">
                 ⭐
             </div>
             <div>
-                <h1 class="font-game text-sm md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Bintang Pancasila</h1>
-                <p class="text-[9px] md:text-xs text-indigo-200 font-semibold">Tantangan Kritis</p>
+                <h1 class="font-game text-xs md:text-xl text-yellow-300 tracking-wide font-bold leading-tight">Bintang Pancasila</h1>
+                <p class="text-[8px] md:text-xs text-indigo-200 font-semibold">HOTS Kelas 12 SMA</p>
             </div>
         </div>
 
-        <div class="flex items-center gap-2 md:gap-4 flex-wrap">
-            <div class="flex flex-col items-start min-w-[80px] md:min-w-[120px]">
-                <div class="flex justify-between w-full text-[9px] md:text-xs font-bold text-indigo-200 mb-0.5">
-                    <span><i class="fa-solid fa-heart text-red-400 mr-1"></i> HP</span>
+        <div class="flex items-center gap-1.5 md:gap-4">
+            <div class="flex flex-col items-start min-w-[65px] md:min-w-[120px]">
+                <div class="flex justify-between w-full text-[8px] md:text-xs font-bold text-indigo-200 mb-0.5">
+                    <span><i class="fa-solid fa-heart text-red-400"></i> HP</span>
                     <span id="hp-text" class="text-white">100%</span>
                 </div>
-                <div class="w-full h-2.5 md:h-3.5 bg-indigo-950/80 rounded-full overflow-hidden border border-indigo-600 p-0.5 shadow-inner">
+                <div class="w-full h-2 md:h-3.5 bg-indigo-950/80 rounded-full overflow-hidden border border-indigo-600 p-0.5 shadow-inner">
                     <div id="hp-bar" class="h-full bg-gradient-to-r from-red-500 via-amber-400 to-emerald-400 rounded-full transition-all duration-300" style="width: 100%;"></div>
                 </div>
             </div>
 
-            <div class="flex items-center gap-2 bg-indigo-950/80 px-2.5 py-1 rounded-xl border border-indigo-700/60">
+            <div class="flex items-center gap-1.5 bg-indigo-950/80 px-2 py-0.5 md:px-2.5 md:py-1 rounded-lg border border-indigo-700/60">
                 <div class="text-center">
-                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase tracking-wider font-semibold">Benar</div>
+                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase font-semibold">Benar</div>
                     <div id="score-text" class="font-game text-amber-300 text-xs md:text-base font-bold leading-none">0 / 75</div>
                 </div>
-                <div class="h-4 w-px bg-indigo-700"></div>
+                <div class="h-3 w-px bg-indigo-700"></div>
                 <div class="text-center">
-                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase tracking-wider font-semibold">Streak</div>
+                    <div class="text-[7px] md:text-[9px] text-indigo-300 uppercase font-semibold">Streak</div>
                     <div id="combo-text" class="font-game text-emerald-400 text-xs md:text-base font-bold leading-none">x0</div>
                 </div>
             </div>
 
             <div class="flex items-center gap-1">
-                <button id="btn-fullscreen" class="w-8 h-8 rounded-lg bg-indigo-900 hover:bg-indigo-800 border border-indigo-500 flex items-center justify-center text-yellow-300 transition-all active:scale-95 shadow" title="Layar Penuh">
-                    <i class="fa-solid fa-expand text-xs"></i>
+                <button id="btn-fullscreen" class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-indigo-900 border border-indigo-500 flex items-center justify-center text-yellow-300 active:scale-95 shadow" title="Layar Penuh">
+                    <i class="fa-solid fa-expand text-[10px] md:text-xs"></i>
                 </button>
-                <button id="btn-guide" class="w-8 h-8 rounded-lg bg-indigo-900 hover:bg-indigo-800 border border-indigo-500 flex items-center justify-center text-amber-300 transition-all active:scale-95 shadow" title="Panduan Sila">
-                    <i class="fa-solid fa-book-open text-xs"></i>
+                <button id="btn-guide" class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-indigo-900 border border-indigo-500 flex items-center justify-center text-amber-300 active:scale-95 shadow" title="Panduan Sila">
+                    <i class="fa-solid fa-book-open text-[10px] md:text-xs"></i>
                 </button>
-                <button id="btn-sound" class="w-8 h-8 rounded-lg bg-indigo-900 hover:bg-indigo-800 border border-indigo-500 flex items-center justify-center text-indigo-200 transition-all active:scale-95 shadow" title="Suara Musik On/Off">
-                    <i id="sound-icon" class="fa-solid fa-volume-high text-xs"></i>
+                <button id="btn-sound" class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-indigo-900 border border-indigo-500 flex items-center justify-center text-indigo-200 active:scale-95 shadow" title="Suara Musik On/Off">
+                    <i id="sound-icon" class="fa-solid fa-volume-high text-[10px] md:text-xs"></i>
                 </button>
-                <button id="btn-restart-game" class="w-8 h-8 rounded-lg bg-indigo-900 hover:bg-indigo-800 border border-indigo-500 flex items-center justify-center text-red-300 transition-all active:scale-95 shadow" title="Mulai Ulang Game">
-                    <i class="fa-solid fa-rotate-right text-xs"></i>
+                <button id="btn-restart-game" class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-indigo-900 border border-indigo-500 flex items-center justify-center text-red-300 active:scale-95 shadow" title="Mulai Ulang Game">
+                    <i class="fa-solid fa-rotate-right text-[10px] md:text-xs"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Game Container & Arena -->
+    <!-- Game Container -->
     <main id="game-container" class="relative flex-1 w-full h-full overflow-hidden bg-slate-900">
         <canvas id="gameCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
 
-        <div class="pointer-events-none absolute inset-x-0 top-2 flex flex-col items-center justify-center px-2 z-10">
-            <div id="banner-bomb" class="px-3.5 py-1.5 rounded-full bg-red-600/95 border-2 border-yellow-400 text-white text-[11px] md:text-sm font-black flex items-center gap-2 shadow-2xl bounce-soft transition-all duration-300">
-                <i class="fa-solid fa-stopwatch text-yellow-300 text-base animate-spin"></i>
-                <span><span id="bomb-status-label" class="text-yellow-200">SEGERA PILIH BINTANG</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
+        <div class="pointer-events-none absolute inset-x-0 top-1.5 flex flex-col items-center justify-center px-2 z-10">
+            <div id="banner-bomb" class="px-3 py-1 rounded-full bg-red-600/95 border border-yellow-400 text-white text-[10px] md:text-sm font-black flex items-center gap-1.5 shadow-xl bounce-soft">
+                <i class="fa-solid fa-stopwatch text-yellow-300 text-xs md:text-base animate-spin"></i>
+                <span><span id="bomb-status-label" class="text-yellow-200">PILIK BINTANG</span>: <span id="bomb-timer-text" class="text-yellow-300 font-mono font-bold text-xs md:text-base">10.0s</span></span>
             </div>
         </div>
     </main>
 
     <!-- Modal Start -->
-    <div id="modal-start" class="fixed inset-0 bg-slate-950/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="bg-indigo-950/90 border-2 border-yellow-400 rounded-3xl max-w-lg w-full p-5 text-center text-white shadow-2xl flex flex-col items-center relative overflow-hidden pulse-glow max-h-[92vh] overflow-y-auto">
+    <div id="modal-start" class="fixed inset-0 bg-slate-950/95 backdrop-blur-md z-50 flex items-center justify-center p-3">
+        <div class="bg-indigo-950/90 border-2 border-yellow-400 rounded-2xl max-w-md w-full p-4 text-center text-white shadow-2xl flex flex-col items-center relative overflow-hidden pulse-glow max-h-[95vh] overflow-y-auto">
             
-            <div class="relative mb-2">
-                <div class="absolute -inset-2 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-full blur opacity-75 spin-slow"></div>
-                <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-200 text-indigo-950 flex items-center justify-center text-3xl shadow-lg border-4 border-yellow-300 bounce-soft">
+            <div class="relative mb-1">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-200 text-indigo-950 flex items-center justify-center text-2xl shadow border-2 border-yellow-300 bounce-soft">
                     ⭐
                 </div>
             </div>
 
-            <h1 class="font-game text-xl md:text-3xl text-yellow-300 mb-0.5 font-bold tracking-wide">Bintang Pancasila Kelas 12</h1>
-            <p class="text-[11px] text-amber-300/90 font-semibold mb-3">Analisis Kritis Studi Kasus Konstitusional & Ideologis</p>
+            <h1 class="font-game text-lg md:text-2xl text-yellow-300 mb-0.5 font-bold tracking-wide">Bintang Pancasila Kelas 12</h1>
+            <p class="text-[10px] text-amber-300/90 font-semibold mb-2.5">Analisis Kritis Konstitusional & Ideologis</p>
 
-            <div class="w-full bg-indigo-900/80 p-3.5 rounded-2xl border border-indigo-700/60 mb-3 text-left">
-                <div class="mb-2.5">
-                    <label for="input-nama" class="block text-xs font-bold text-amber-300 mb-1">
+            <div class="w-full bg-indigo-900/80 p-3 rounded-xl border border-indigo-700/60 mb-2.5 text-left">
+                <div class="mb-2">
+                    <label for="input-nama" class="block text-[11px] font-bold text-amber-300 mb-0.5">
                         <i class="fa-solid fa-user mr-1"></i> Nama Lengkap Siswa:
                     </label>
-                    <input type="text" id="input-nama" placeholder="Masukkan nama kamu..." class="w-full px-3 py-2 rounded-xl bg-indigo-950 border border-indigo-600 text-white text-xs focus:outline-none focus:border-yellow-400 transition-all">
+                    <input type="text" id="input-nama" placeholder="Masukkan nama..." class="w-full px-2.5 py-1.5 rounded-lg bg-indigo-950 border border-indigo-600 text-white text-xs focus:outline-none focus:border-yellow-400">
                 </div>
                 <div>
-                    <label for="select-kelas" class="block text-xs font-bold text-amber-300 mb-1">
+                    <label for="select-kelas" class="block text-[11px] font-bold text-amber-300 mb-0.5">
                         <i class="fa-solid fa-graduation-cap mr-1"></i> Pilih Kelas (Khusus XII):
                     </label>
-                    <select id="select-kelas" class="w-full px-3 py-2 rounded-xl bg-indigo-950 border border-indigo-600 text-white text-xs focus:outline-none focus:border-yellow-400 transition-all">
-                        <option value="" disabled selected>-- Pilih Rombel Kelas XII --</option>
+                    <select id="select-kelas" class="w-full px-2.5 py-1.5 rounded-lg bg-indigo-950 border border-indigo-600 text-white text-xs focus:outline-none focus:border-yellow-400">
+                        <option value="" disabled selected>-- Pilih Rombel XII --</option>
                     </select>
                 </div>
-                <div id="form-error" class="text-red-400 text-[10px] mt-1.5 hidden font-semibold">
-                    <i class="fa-solid fa-circle-exclamation mr-1"></i> Mohon isi Nama dan Pilih Kelas terlebih dahulu!
+                <div id="form-error" class="text-red-400 text-[9px] mt-1 hidden font-semibold">
+                    <i class="fa-solid fa-circle-exclamation mr-1"></i> Isi Nama dan Pilih Kelas terlebih dahulu!
                 </div>
             </div>
 
-            <p class="text-xs text-indigo-200 mb-3 leading-relaxed px-1">
-                ⚠️ <span class="text-yellow-300 font-bold">Aturan Analisis:</span> Pilih bintang berdurasi <span class="text-red-400 font-bold">10 Detik</span>. Setelah bintang dipegang, cermati kasus HOTS di tengah layar lalu tarik ke keranjang Sila yang relevan dalam waktu <span class="text-yellow-300 font-bold">15 Detik</span>. Setiap jawaban benar menambah <span class="text-emerald-400 font-bold">+1 Poin</span> dan memicu <span class="text-amber-300 font-bold">Streak Bonus</span>!
+            <p class="text-[11px] text-indigo-200 mb-3 leading-snug px-1">
+                ⚠️ <span class="text-yellow-300 font-bold">Aturan:</span> Pilih bintang berdurasi <span class="text-red-400 font-bold">10 Detik</span>. Cermati kasus di tengah layar lalu tarik ke keranjang Sila relevan dalam <span class="text-yellow-300 font-bold">15 Detik</span>. Setiap jawaban benar menambah <span class="text-emerald-400 font-bold">+1 Poin</span>.
             </p>
 
-            <button id="btn-start-game" class="w-full py-3 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 text-indigo-950 font-bold font-game text-base md:text-lg rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-play text-lg"></i> MULAI ANALISIS
+            <button id="btn-start-game" class="w-full py-2.5 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 text-indigo-950 font-bold font-game text-sm md:text-base rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                <i class="fa-solid fa-play mr-1"></i> MULAI ANALISIS HOTS
             </button>
         </div>
     </div>
 
     <!-- Modal Panduan Sila -->
-    <div id="modal-guide" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-indigo-950 border-2 border-indigo-500 rounded-3xl max-w-lg w-full p-5 shadow-2xl text-indigo-100 flex flex-col max-h-[85vh]">
-            <div class="flex items-center justify-between pb-2 border-b border-indigo-800 mb-3">
-                <h2 class="font-game text-lg text-yellow-300 flex items-center gap-2">
+    <div id="modal-guide" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+        <div class="bg-indigo-950 border-2 border-indigo-500 rounded-2xl max-w-md w-full p-4 shadow-2xl text-indigo-100 flex flex-col max-h-[85vh]">
+            <div class="flex items-center justify-between pb-1.5 border-b border-indigo-800 mb-2">
+                <h2 class="font-game text-base text-yellow-300 flex items-center gap-1.5">
                     <i class="fa-solid fa-book-open text-amber-400"></i>
-                    Kerangka Analisis Nilai Pancasila Kelas XII
+                    Kerangka Sila Pancasila Kelas XII
                 </h2>
-                <button id="btn-close-guide" class="w-7 h-7 rounded-full bg-indigo-900 text-indigo-300 hover:bg-indigo-800 flex items-center justify-center text-xs">
+                <button id="btn-close-guide" class="w-6 h-6 rounded-full bg-indigo-900 text-indigo-300 flex items-center justify-center text-xs">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
-            <div class="overflow-y-auto space-y-2.5 pr-1 text-xs">
-                <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">⭐</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 1: Ketuhanan Yang Maha Esa</strong>Spiritualitas berbangsa, etika keagamaan, toleransi antarumat, & penolakan radikalisme/politisasi agama.</div>
+            <div class="overflow-y-auto space-y-2 pr-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-indigo-900/60 border border-amber-500/30 flex gap-2 items-center">
+                    <span class="text-xl">⭐</span>
+                    <div><strong class="text-amber-300 block font-game">Sila 1: Ketuhanan YME</strong>Spiritualitas berbangsa, etika keagamaan, toleransi antarumat, & penolakan radikalisme.</div>
                 </div>
-
-                <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">⛓️</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 2: Kemanusiaan yang Adil dan Beradab</strong>Penegakan HAM universal, etika AI/teknologi, perlakuan diskriminatif, & martabat kemanusiaan.</div>
+                <div class="p-2 rounded-lg bg-indigo-900/60 border border-amber-500/30 flex gap-2 items-center">
+                    <span class="text-xl">⛓️</span>
+                    <div><strong class="text-amber-300 block font-game">Sila 2: Kemanusiaan Adil & Beradab</strong>Penegakan HAM universal, etika AI/teknologi, & martabat kemanusiaan.</div>
                 </div>
-
-                <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">🌳</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 3: Persatuan Indonesia</strong>Kedaulatan wilayah, integrasi siber/data, kesadaran geopolitik, & pertahanan dari disintegrasi.</div>
+                <div class="p-2 rounded-lg bg-indigo-900/60 border border-amber-500/30 flex gap-2 items-center">
+                    <span class="text-xl">🌳</span>
+                    <div><strong class="text-amber-300 block font-game">Sila 3: Persatuan Indonesia</strong>Kedaulatan wilayah, integrasi siber/data, & pertahanan dari disintegrasi.</div>
                 </div>
-
-                <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">🐂</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 4: Kerakyatan yang Dipimpin...</strong>Demokrasi deliberatif, integritas Pemilu/Pemilukada, kedaulatan rakyat, & antikorupsi/nepotisme.</div>
+                <div class="p-2 rounded-lg bg-indigo-900/60 border border-amber-500/30 flex gap-2 items-center">
+                    <span class="text-xl">🐂</span>
+                    <div><strong class="text-amber-300 block font-game">Sila 4: Kerakyatan & Musyawarah</strong>Demokrasi deliberatif, integritas Pemilu, & antikorupsi/nepotisme.</div>
                 </div>
-
-                <div class="p-2.5 rounded-xl bg-indigo-900/60 border border-amber-500/30 flex gap-2.5 items-center">
-                    <span class="text-2xl">🌾</span>
-                    <div><strong class="text-amber-300 block font-game">Sila 5: Keadilan Sosial bagi Seluruh...</strong>Pemerataan ekonomi, keadilan ekologis, perlindungan sektor informal, & kedaulatan riset/HAKI.</div>
+                <div class="p-2 rounded-lg bg-indigo-900/60 border border-amber-500/30 flex gap-2 items-center">
+                    <span class="text-xl">🌾</span>
+                    <div><strong class="text-amber-300 block font-game">Sila 5: Keadilan Sosial</strong>Pemerataan ekonomi, keadilan ekologis, & kedaulatan riset/HAKI.</div>
                 </div>
             </div>
 
-            <button id="btn-understood" class="mt-4 w-full py-2 bg-gradient-to-r from-amber-500 to-yellow-400 text-indigo-950 font-bold font-game rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all text-xs">
+            <button id="btn-understood" class="mt-3 w-full py-2 bg-gradient-to-r from-amber-500 to-yellow-400 text-indigo-950 font-bold font-game rounded-lg text-xs">
                 Saya Paham, Siap Bermain!
             </button>
         </div>
     </div>
 
     <!-- Modal End -->
-    <div id="modal-end" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-indigo-950 border-2 border-amber-400 rounded-3xl max-w-md w-full p-5 text-center text-white shadow-2xl flex flex-col items-center relative overflow-hidden">
-            <div id="end-icon" class="text-5xl mb-1 animate-bounce">🏆</div>
-            <h2 id="end-title" class="font-game text-xl md:text-2xl text-yellow-300 mb-0.5">Analisis Selesai!</h2>
-            <p id="end-subtitle" class="text-xs text-indigo-200 mb-3">Kamu telah menguji pemahaman kritis Pancasila Kelas XII!</p>
+    <div id="modal-end" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-3 hidden">
+        <div class="bg-indigo-950 border-2 border-amber-400 rounded-2xl max-w-sm w-full p-4 text-center text-white shadow-2xl flex flex-col items-center">
+            <div id="end-icon" class="text-4xl mb-1 animate-bounce">🏆</div>
+            <h2 id="end-title" class="font-game text-lg text-yellow-300 mb-0.5">Analisis Selesai!</h2>
+            <p id="end-subtitle" class="text-[11px] text-indigo-200 mb-2.5">Pemahaman kritis Pancasila Kelas XII!</p>
 
-            <div id="end-player-info" class="text-xs text-amber-300 font-bold mb-2.5"></div>
+            <div id="end-player-info" class="text-xs text-amber-300 font-bold mb-2"></div>
 
-            <div class="w-full bg-indigo-900/60 rounded-2xl p-3 border border-indigo-700/50 space-y-1.5 mb-3">
-                <div class="flex justify-between text-xs">
+            <div class="w-full bg-indigo-900/60 rounded-xl p-2.5 border border-indigo-700/50 space-y-1 mb-2.5 text-xs">
+                <div class="flex justify-between">
                     <span class="text-indigo-300">Total Benar:</span>
-                    <span id="end-score" class="font-bold text-amber-300 font-game text-base">0 / 75</span>
+                    <span id="end-score" class="font-bold text-amber-300 font-game">0 / 75</span>
                 </div>
-                <div class="flex justify-between text-xs">
+                <div class="flex justify-between">
                     <span class="text-indigo-300">Akurasi Analisis:</span>
-                    <span id="end-accuracy" class="font-bold text-emerald-300 font-game text-base">0%</span>
+                    <span id="end-accuracy" class="font-bold text-emerald-300 font-game">0%</span>
                 </div>
-                <div class="flex justify-between text-xs">
+                <div class="flex justify-between">
                     <span class="text-indigo-300">Gelar:</span>
-                    <span id="end-rank" class="font-bold text-yellow-200 font-game text-xs">Begawan Ideologi Bangsa</span>
+                    <span id="end-rank" class="font-bold text-yellow-200 font-game text-[11px]">Begawan Ideologi Bangsa</span>
                 </div>
             </div>
 
-            <div id="end-status" class="text-[11px] text-emerald-400 font-semibold mb-3 hidden">
-                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Data nilai telah dikirim ke Spreadsheet Guru!
+            <div id="end-status" class="text-[10px] text-emerald-400 font-semibold mb-2.5 hidden">
+                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Data nilai tersimpan di Spreadsheet!
             </div>
 
-            <button id="btn-play-again" class="w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-400 text-indigo-950 font-bold font-game text-sm rounded-xl shadow-xl hover:brightness-110 active:scale-95 transition-all">
-                <i class="fa-solid fa-rotate-right mr-1.5"></i> Coba Ulang Game
+            <button id="btn-play-again" class="w-full py-2 bg-gradient-to-r from-emerald-500 to-teal-400 text-indigo-950 font-bold font-game text-xs rounded-lg">
+                <i class="fa-solid fa-rotate-right mr-1"></i> Coba Ulang Game
             </button>
         </div>
     </div>
-
-    <!-- SKRIP AUTO-FORCE REFRESH (GITHUB PAGES VERSION CONTROL) -->
-    <script>
-        const APP_VERSION = "2.3.0"; 
-
-        (function forceRefreshOnUpdate() {
-            const savedVersion = localStorage.getItem('pancasila_app_version');
-            if (savedVersion !== APP_VERSION) {
-                localStorage.setItem('pancasila_app_version', APP_VERSION);
-                window.location.reload(true);
-            }
-        })();
-    </script>
 
     <!-- AUDIO ENGINE -->
     <script>
@@ -269,36 +233,28 @@
                 this.isPlayingBGM = false;
                 this.bgmInterval = null;
             }
-
             init() {
                 if (!this.ctx) {
                     const AudioContext = window.AudioContext || window.webkitAudioContext;
                     if (AudioContext) this.ctx = new AudioContext();
                 }
-                if (this.ctx && this.ctx.state === 'suspended') {
-                    this.ctx.resume();
-                }
+                if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
             }
-
             playStart() {
                 if (!this.enabled || !this.ctx) return;
                 try {
-                    const notes = [261.63, 329.63, 392.00, 523.25, 659.25];
-                    notes.forEach((f, i) => {
+                    [261.63, 329.63, 392.00, 523.25].forEach((f, i) => {
                         const osc = this.ctx.createOscillator();
                         const gain = this.ctx.createGain();
                         osc.type = 'triangle';
                         osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.06);
-                        gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.06);
-                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.06 + 0.15);
-                        osc.connect(gain);
-                        gain.connect(this.ctx.destination);
-                        osc.start(this.ctx.currentTime + i * 0.06);
-                        osc.stop(this.ctx.currentTime + i * 0.06 + 0.15);
+                        gain.gain.setValueAtTime(0.15, this.ctx.currentTime + i * 0.06);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.06 + 0.12);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(this.ctx.currentTime + i * 0.06); osc.stop(this.ctx.currentTime + i * 0.06 + 0.12);
                     });
                 } catch(e){}
             }
-
             playPop() {
                 if (!this.enabled || !this.ctx) return;
                 try {
@@ -307,15 +263,12 @@
                     osc.type = 'sine';
                     osc.frequency.setValueAtTime(300, this.ctx.currentTime);
                     osc.frequency.exponentialRampToValueAtTime(600, this.ctx.currentTime + 0.08);
-                    gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
+                    gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
                     gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.08);
-                    osc.connect(gain);
-                    gain.connect(this.ctx.destination);
-                    osc.start();
-                    osc.stop(this.ctx.currentTime + 0.08);
+                    osc.connect(gain); gain.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.08);
                 } catch(e){}
             }
-
             playTick() {
                 if (!this.enabled || !this.ctx) return;
                 try {
@@ -323,53 +276,42 @@
                     const gain = this.ctx.createGain();
                     osc.type = 'sine';
                     osc.frequency.setValueAtTime(880, this.ctx.currentTime);
-                    gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+                    gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-                    osc.connect(gain);
-                    gain.connect(this.ctx.destination);
-                    osc.start();
-                    osc.stop(this.ctx.currentTime + 0.04);
+                    osc.connect(gain); gain.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.04);
                 } catch(e){}
             }
-
             playCorrect() {
                 if (!this.enabled || !this.ctx) return;
                 try {
-                    const freqs = [523.25, 659.25, 783.99, 1046.50];
-                    freqs.forEach((f, i) => {
+                    [523.25, 659.25, 783.99].forEach((f, i) => {
                         const osc = this.ctx.createOscillator();
                         const gain = this.ctx.createGain();
                         osc.type = 'triangle';
                         osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.07);
-                        gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.07);
-                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.07 + 0.22);
-                        osc.connect(gain);
-                        gain.connect(this.ctx.destination);
-                        osc.start(this.ctx.currentTime + i * 0.07);
-                        osc.stop(this.ctx.currentTime + i * 0.07 + 0.22);
+                        gain.gain.setValueAtTime(0.15, this.ctx.currentTime + i * 0.07);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.07 + 0.2);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(this.ctx.currentTime + i * 0.07); osc.stop(this.ctx.currentTime + i * 0.07 + 0.2);
                     });
                 } catch(e){}
             }
-
             playStreakSound() {
                 if (!this.enabled || !this.ctx) return;
                 try {
-                    const freqs = [440, 554.37, 659.25, 880, 1108.73];
-                    freqs.forEach((f, i) => {
+                    [440, 554.37, 659.25, 880].forEach((f, i) => {
                         const osc = this.ctx.createOscillator();
                         const gain = this.ctx.createGain();
                         osc.type = 'sine';
                         osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.08);
-                        gain.gain.setValueAtTime(0.25, this.ctx.currentTime + i * 0.08);
-                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.08 + 0.3);
-                        osc.connect(gain);
-                        gain.connect(this.ctx.destination);
-                        osc.start(this.ctx.currentTime + i * 0.08);
-                        osc.stop(this.ctx.currentTime + i * 0.08 + 0.3);
+                        gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.08 + 0.25);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(this.ctx.currentTime + i * 0.08); osc.stop(this.ctx.currentTime + i * 0.08 + 0.25);
                     });
                 } catch(e){}
             }
-
             playError() {
                 if (!this.enabled || !this.ctx) return;
                 try {
@@ -377,48 +319,36 @@
                     const gain = this.ctx.createGain();
                     osc.type = 'sawtooth';
                     osc.frequency.setValueAtTime(180, this.ctx.currentTime);
-                    osc.frequency.linearRampToValueAtTime(80, this.ctx.currentTime + 0.25);
-                    gain.gain.setValueAtTime(0.3, this.ctx.currentTime);
-                    gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.25);
-                    osc.connect(gain);
-                    gain.connect(this.ctx.destination);
-                    osc.start();
-                    osc.stop(this.ctx.currentTime + 0.25);
+                    osc.frequency.linearRampToValueAtTime(80, this.ctx.currentTime + 0.2);
+                    gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
+                    gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.2);
+                    osc.connect(gain); gain.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.2);
                 } catch(e){}
             }
-
             playExplosion() {
                 if (!this.enabled || !this.ctx) return;
                 try {
-                    const bufferSize = this.ctx.sampleRate * 0.35;
+                    const bufferSize = this.ctx.sampleRate * 0.25;
                     const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
                     const data = buffer.getChannelData(0);
-                    for (let i = 0; i < bufferSize; i++) {
-                        data[i] = Math.random() * 2 - 1;
-                    }
-                    const noise = this.ctx.createBufferSource();
-                    noise.buffer = buffer;
-
+                    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                    const noise = this.ctx.createBufferSource(); noise.buffer = buffer;
                     const filter = this.ctx.createBiquadFilter();
                     filter.type = 'lowpass';
-                    filter.frequency.setValueAtTime(600, this.ctx.currentTime);
-                    filter.frequency.linearRampToValueAtTime(60, this.ctx.currentTime + 0.35);
-
+                    filter.frequency.setValueAtTime(500, this.ctx.currentTime);
+                    filter.frequency.linearRampToValueAtTime(60, this.ctx.currentTime + 0.25);
                     const gain = this.ctx.createGain();
-                    gain.gain.setValueAtTime(0.4, this.ctx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.35);
-
-                    noise.connect(filter);
-                    filter.connect(gain);
-                    gain.connect(this.ctx.destination);
+                    gain.gain.setValueAtTime(0.3, this.ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.25);
+                    noise.connect(filter); filter.connect(gain); gain.connect(this.ctx.destination);
                     noise.start();
                 } catch(e){}
             }
-
             startBGM() {
                 if (!this.enabled || !this.ctx || this.isPlayingBGM) return;
                 this.isPlayingBGM = true;
-                const melody = [330, 392, 440, 392, 330, 293, 261, 293, 330, 330, 330, 293, 293, 293, 330, 392, 392];
+                const melody = [330, 392, 440, 392, 330, 293, 261, 293];
                 let noteIdx = 0;
                 this.bgmInterval = setInterval(() => {
                     if (!this.enabled || !this.isPlayingBGM || !this.ctx) return;
@@ -427,59 +357,45 @@
                         const gain = this.ctx.createGain();
                         osc.type = 'sine';
                         osc.frequency.setValueAtTime(melody[noteIdx], this.ctx.currentTime);
-                        gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
-                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.22);
-                        osc.connect(gain);
-                        gain.connect(this.ctx.destination);
-                        osc.start();
-                        osc.stop(this.ctx.currentTime + 0.22);
+                        gain.gain.setValueAtTime(0.02, this.ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(); osc.stop(this.ctx.currentTime + 0.2);
                         noteIdx = (noteIdx + 1) % melody.length;
                     } catch(e){}
-                }, 300);
+                }, 350);
             }
-
             stopBGM() {
                 this.isPlayingBGM = false;
-                if (this.bgmInterval) {
-                    clearInterval(this.bgmInterval);
-                    this.bgmInterval = null;
-                }
+                if (this.bgmInterval) { clearInterval(this.bgmInterval); this.bgmInterval = null; }
             }
-
             playVictory() {
                 if (!this.enabled || !this.ctx) return;
                 try {
-                    const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51];
-                    notes.forEach((f, i) => {
+                    [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
                         const osc = this.ctx.createOscillator();
                         const gain = this.ctx.createGain();
                         osc.type = 'triangle';
-                        osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.12);
-                        gain.gain.setValueAtTime(0.3, this.ctx.currentTime + i * 0.12);
-                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.12 + 0.35);
-                        osc.connect(gain);
-                        gain.connect(this.ctx.destination);
-                        osc.start(this.ctx.currentTime + i * 0.12);
-                        osc.stop(this.ctx.currentTime + i * 0.12 + 0.35);
+                        osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.1);
+                        gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.1);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.1 + 0.3);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(this.ctx.currentTime + i * 0.1); osc.stop(this.ctx.currentTime + i * 0.1 + 0.3);
                     });
                 } catch(e){}
             }
-
             playGameOver() {
                 if (!this.enabled || !this.ctx) return;
                 try {
-                    const notes = [400, 350, 300, 250, 180];
-                    notes.forEach((f, i) => {
+                    [350, 300, 250, 180].forEach((f, i) => {
                         const osc = this.ctx.createOscillator();
                         const gain = this.ctx.createGain();
                         osc.type = 'sawtooth';
-                        osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.15);
-                        gain.gain.setValueAtTime(0.25, this.ctx.currentTime + i * 0.15);
-                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.15 + 0.25);
-                        osc.connect(gain);
-                        gain.connect(this.ctx.destination);
-                        osc.start(this.ctx.currentTime + i * 0.15);
-                        osc.stop(this.ctx.currentTime + i * 0.15 + 0.25);
+                        osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.12);
+                        gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.12);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.12 + 0.2);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(this.ctx.currentTime + i * 0.12); osc.stop(this.ctx.currentTime + i * 0.12 + 0.2);
                     });
                 } catch(e){}
             }
@@ -496,13 +412,9 @@
 
         function requestFullScreen() {
             const doc = document.documentElement;
-            if (doc.requestFullscreen) {
-                doc.requestFullscreen().catch(() => {});
-            } else if (doc.webkitRequestFullscreen) {
-                doc.webkitRequestFullscreen();
-            } else if (doc.msRequestFullscreen) {
-                doc.msRequestFullscreen();
-            }
+            if (doc.requestFullscreen) doc.requestFullscreen().catch(() => {});
+            else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+            else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
         }
 
         function populateClassOptions() {
@@ -511,8 +423,7 @@
             for (let i = 1; i <= 8; i++) {
                 const className = `XII-${i}`;
                 const opt = document.createElement('option');
-                opt.value = className;
-                opt.textContent = className;
+                opt.value = className; opt.textContent = className;
                 select.appendChild(opt);
             }
         }
@@ -532,7 +443,6 @@
             .catch(err => console.error('Gagal mengirim data:', err));
         }
 
-        // 75 SKENARIO (BOBOT TINGKAT KELAS 12 SMA)
         const SCENARIOS = [
             { id: 1, text: "Dalam menyikapi pesatnya perkembangan teknologi rekayasa genetika kecerdasan buatan, sekelompok peneliti nasional menyusun etika profesi yang menjamin pertanggungjawaban moral ilmu pengetahuan kepada Tuhan Yang Maha Esa serta keharmonisan iman.", sila: 1 },
             { id: 2, text: "Seorang warga negara Indonesia mengkritisi regulasi penanganan pengungsi lintas negara di media sosial dengan mendesak pemerintah agar pemenuhan fasilitas kesehatan dasar dan perlindungan hukum tetap diberikan sesuai dengan asas martabat manusia universal.", sila: 2 },
@@ -625,7 +535,7 @@
         let dpr = 1;
         let width = 0, height = 0;
         let hp = 100;
-        let score = 0; // HANYA MENGHITUNG JUMLAH BENAR (0 s/d 75)
+        let score = 0;
         let streak = 0;
         let casesSolved = 0;
         let activeEggIdx = -1;
@@ -634,8 +544,8 @@
         let isGameOver = false;
         let isGameStarted = false;
 
-        const EGG_TIMER_MAX = 15.0;  // Timer baca/geser bintang
-        const IDLE_TIMER_MAX = 10.0; // Timer inaktivitas
+        const EGG_TIMER_MAX = 15.0;
+        const IDLE_TIMER_MAX = 10.0;
         let idleTimer = IDLE_TIMER_MAX;
 
         const pointer = { x: 0, y: 0, isDown: false, justPressed: false };
@@ -644,12 +554,13 @@
         let clouds = [];
         let particles = [];
         let floatTexts = [];
-        let streakPopups = []; // NOTIFIKASI STREAK SUPER ATRAKTIF
+        let streakPopups = [];
         let screenShakeTime = 0;
 
         function resizeCanvas() {
             const rect = canvas.parentElement.getBoundingClientRect();
-            dpr = window.devicePixelRatio || 1;
+            // OPTIMASI HP: Batasi DPR maksimal di angka 1.5 agar rendering tidak terlalu berat
+            dpr = Math.min(window.devicePixelRatio || 1, 1.5);
             width = rect.width;
             height = rect.height;
             
@@ -667,26 +578,17 @@
         function setupClouds() {
             clouds = [];
             const isMobile = width < 600;
-            const cloudWidth = Math.min((width - 20) / 5 - 4, isMobile ? 72 : 120);
-            const cloudHeight = isMobile ? 75 : 85;
+            const cloudWidth = Math.min((width - 16) / 5 - 2, isMobile ? 68 : 120);
+            const cloudHeight = isMobile ? 65 : 85;
             const totalWidth = 5 * cloudWidth;
             const gap = (width - totalWidth) / 6;
 
             SILA_INFO.forEach((info, idx) => {
                 const cx = gap + idx * (cloudWidth + gap) + cloudWidth / 2;
-                const cy = height - (cloudHeight / 2 + 12);
+                const cy = height - (cloudHeight / 2 + 8);
                 clouds.push({
-                    id: info.id,
-                    name: info.name,
-                    label: info.label,
-                    symbol: info.symbol,
-                    color: info.color,
-                    x: cx,
-                    y: cy,
-                    radius: cloudWidth / 2,
-                    w: cloudWidth,
-                    h: cloudHeight,
-                    active: true
+                    id: info.id, name: info.name, label: info.label, symbol: info.symbol, color: info.color,
+                    x: cx, y: cy, radius: cloudWidth / 2, w: cloudWidth, h: cloudHeight, active: true
                 });
             });
         }
@@ -696,10 +598,10 @@
             const count = SCENARIOS.length;
             const cols = width < 600 ? 6 : 15;
             const rows = Math.ceil(count / cols);
-            const startX = 25;
-            const endX = width - 25;
-            const startY = 85;
-            const endY = height - 125;
+            const startX = 20;
+            const endX = width - 20;
+            const startY = 75;
+            const endY = height - 100;
 
             for (let i = 0; i < count; i++) {
                 const scenario = SCENARIOS[i];
@@ -711,11 +613,11 @@
 
                 eggs.push({
                     id: scenario.id,
-                    x: gridX + (Math.random() - 0.5) * 6,
-                    y: gridY + (Math.random() - 0.5) * 6,
-                    vx: (Math.random() - 0.5) * 50,
-                    vy: (Math.random() - 0.5) * 45,
-                    radius: Math.min(22, Math.max(16, width / 50)),
+                    x: gridX + (Math.random() - 0.5) * 4,
+                    y: gridY + (Math.random() - 0.5) * 4,
+                    vx: (Math.random() - 0.5) * 40,
+                    vy: (Math.random() - 0.5) * 35,
+                    radius: Math.min(18, Math.max(14, width / 55)),
                     scenario: scenario,
                     active: true,
                     pulse: Math.random() * Math.PI,
@@ -762,99 +664,87 @@
 
         window.addEventListener('touchend', () => pointer.isDown = false);
 
-        // TRIGGER NOTIFIKASI STREAK MEWAH DENGAN DURASI LEBIH LAMA
         function triggerStreakBanner(currentStreak) {
             let title = "";
-            let subText = "ANALISIS PANCASILA TEPAT!";
+            let subText = "ANALISIS TEPAT!";
             let gradStart = "#F59E0B";
             let gradEnd = "#EF4444";
 
             if (currentStreak === 3) {
-                title = "🔥 3x STREAK!";
-                subText = "ANALISIS MEMBARA!";
+                title = "🔥 3x STREAK!"; subText = "ANALISIS MEMBARA!";
                 gradStart = "#FF512F"; gradEnd = "#DD2476";
             } else if (currentStreak === 5) {
-                title = "⚡ 5x STREAK COMBO!";
-                subText = "TANGKAS & SANGAT TEPAT!";
+                title = "⚡ 5x STREAK COMBO!"; subText = "TANGKAS & SANGAT TEPAT!";
                 gradStart = "#8A2387"; gradEnd = "#E94057";
             } else if (currentStreak === 10) {
-                title = "🌟 10x STREAK MASTER!";
-                subText = "CENDEKIAWAN PANCASILA SEJATI!";
+                title = "🌟 10x STREAK MASTER!"; subText = "CENDEKIAWAN PANCASILA!";
                 gradStart = "#11998e"; gradEnd = "#38ef7d";
             } else if (currentStreak === 15) {
-                title = "👑 15x STREAK LEGEND!";
-                subText = "MAHA BINTANG IDEOLOGI BANGSA!";
+                title = "👑 15x STREAK LEGEND!"; subText = "MAHA BINTANG IDEOLOGI!";
                 gradStart = "#FF007F"; gradEnd = "#7928CA";
             } else if (currentStreak > 15 && currentStreak % 5 === 0) {
-                title = `🚀 ${currentStreak}x STREAK UNSTOPPABLE!`;
-                subText = "PERTANAHAN ANALISIS TAK TERKAPALKAN!";
+                title = `🚀 ${currentStreak}x STREAK UNSTOPPABLE!`; subText = "ANALISIS TAK TERKAPALKAN!";
                 gradStart = "#00F2FE"; gradEnd = "#4FACFE";
             }
 
             if (title) {
                 audio.playStreakSound();
-                triggerScreenShake(0.35);
-                spawnFireworks(width / 2, height / 3.5); // Semburan Kembang Api Melimpah
+                triggerScreenShake(0.2);
+                spawnFireworks(width / 2, height / 3.5);
 
                 streakPopups.push({
-                    title: title,
-                    subText: subText,
-                    x: width / 2,
-                    y: height / 3.2,
-                    scale: 0.1,
-                    targetScale: 1.0,
-                    opacity: 1.0,
-                    life: 3.2, // Tampil Lebih Lama (3.2 Detik)
-                    gradStart: gradStart,
-                    gradEnd: gradEnd
+                    title: title, subText: subText,
+                    x: width / 2, y: height / 3.2,
+                    scale: 0.1, targetScale: 1.0,
+                    opacity: 1.0, life: 3.0,
+                    gradStart: gradStart, gradEnd: gradEnd
                 });
             }
         }
 
-        // SEMBURAN KEMBANG API & CONFETTI MELIMPAH (JATUH SAMPAI DASAR)
+        // SEMBURAN KEMBANG API DENGAN JUMLAH PARTIKEL RAMAH MOBILE
         function spawnFireworks(x, y) {
-            const colors = ['#FBBF24', '#EF4444', '#10B981', '#3B82F6', '#EC4899', '#A855F7', '#38BDF8'];
-            const count = 90; // Partikel Banyak & Sangat Luas
+            const colors = ['#FBBF24', '#EF4444', '#10B981', '#3B82F6', '#EC4899', '#A855F7'];
+            const isMobile = width < 600;
+            const count = isMobile ? 35 : 70; // Penyesuaian performa di HP
 
             for (let i = 0; i < count; i++) {
                 const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 380 + 80;
+                const speed = Math.random() * (isMobile ? 240 : 360) + 60;
                 particles.push({
                     x: x, y: y,
                     vx: Math.cos(angle) * speed,
-                    vy: Math.sin(angle) * speed - Math.random() * 150, // Hamburan Tinggi ke Atas
-                    gravity: Math.random() * 250 + 150, // Gravitasi Memastikan Jatuh Sampai Dasar
-                    drag: 0.98,
-                    life: Math.random() * 1.5 + 2.0, // Masa Hidup Lebih Lama
-                    maxLife: 3.5,
+                    vy: Math.sin(angle) * speed - Math.random() * 100,
+                    gravity: Math.random() * 200 + 120,
+                    drag: 0.97,
+                    life: Math.random() * 1.2 + 1.8,
                     color: colors[Math.floor(Math.random() * colors.length)],
-                    size: Math.random() * 7 + 4,
+                    size: Math.random() * 5 + 3,
                     isConfetti: Math.random() > 0.4
                 });
             }
         }
 
-        function spawnBurst(x, y, color, count = 25) {
-            for (let i = 0; i < count; i++) {
+        function spawnBurst(x, y, color, count = 20) {
+            const isMobile = width < 600;
+            const adjustedCount = isMobile ? 12 : count;
+            for (let i = 0; i < adjustedCount; i++) {
                 const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 220 + 40;
+                const speed = Math.random() * 180 + 30;
                 particles.push({
                     x: x, y: y,
-                    vx: Math.cos(angle) * speed,
-                    vy: Math.sin(angle) * speed,
-                    gravity: 120,
-                    drag: 0.96,
-                    life: 1.2,
-                    color: color, size: Math.random() * 5 + 3
+                    vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+                    gravity: 100, drag: 0.95, life: 1.0,
+                    color: color, size: Math.random() * 4 + 2
                 });
             }
         }
 
         function addFloatText(text, x, y, color = '#FBBF24') {
-            floatTexts.push({ text: text, x: x, y: y, vy: -45, life: 1.2, color: color });
+            floatTexts.push({ text: text, x: x, y: y, vy: -40, life: 1.1, color: color });
         }
 
-        function triggerScreenShake(duration = 0.3) {
+        function triggerScreenShake(duration = 0.2) {
             screenShakeTime = duration;
         }
 
@@ -864,9 +754,7 @@
             document.getElementById('score-text').innerText = `${score} / 75`;
             document.getElementById('combo-text').innerText = `x${streak}`;
 
-            if (hp <= 0 && !isGameOver) {
-                endGame(false);
-            }
+            if (hp <= 0 && !isGameOver) endGame(false);
         }
 
         function wrapText(context, text, x, y, maxWidth, lineHeight) {
@@ -877,12 +765,8 @@
             for (let i = 1; i < words.length; i++) {
                 let word = words[i];
                 let w = context.measureText(currentLine + " " + word).width;
-                if (w < maxWidth) {
-                    currentLine += " " + word;
-                } else {
-                    lines.push(currentLine);
-                    currentLine = word;
-                }
+                if (w < maxWidth) currentLine += " " + word;
+                else { lines.push(currentLine); currentLine = word; }
             }
             lines.push(currentLine);
 
@@ -893,23 +777,9 @@
         }
 
         function drawStar(ctx, radius, isSelected) {
-            ctx.shadowColor = isSelected ? 'rgba(96, 165, 250, 0.9)' : 'rgba(251, 191, 36, 0.7)';
-            ctx.shadowBlur = isSelected ? 18 : 8;
-
-            const gradient = ctx.createRadialGradient(0, 0, 2, 0, 0, radius);
-            if (isSelected) {
-                gradient.addColorStop(0, '#FFFFFF');
-                gradient.addColorStop(0.5, '#60A5FA');
-                gradient.addColorStop(1, '#1D4ED8');
-            } else {
-                gradient.addColorStop(0, '#FFFBEB');
-                gradient.addColorStop(0.4, '#FBBF24');
-                gradient.addColorStop(1, '#D97706');
-            }
-
-            ctx.fillStyle = gradient;
-            ctx.strokeStyle = isSelected ? '#3B82F6' : '#B45309';
-            ctx.lineWidth = isSelected ? 3 : 1.5;
+            ctx.fillStyle = isSelected ? '#60A5FA' : '#FBBF24';
+            ctx.strokeStyle = isSelected ? '#2563EB' : '#D97706';
+            ctx.lineWidth = isSelected ? 2.5 : 1.5;
 
             ctx.beginPath();
             for (let i = 0; i < 5; i++) {
@@ -939,19 +809,18 @@
                     egg.x += egg.vx * 0.3 * dt;
                     egg.y += egg.vy * 0.3 * dt;
                     if (egg.x < egg.radius || egg.x > width - egg.radius) egg.vx *= -1;
-                    if (egg.y < egg.radius + 60 || egg.y > height - 120) egg.vy *= -1;
+                    if (egg.y < egg.radius + 50 || egg.y > height - 100) egg.vy *= -1;
                 });
                 return;
             }
 
             if (screenShakeTime > 0) screenShakeTime -= dt;
 
-            // Touch / Press Detection
             if (pointer.justPressed) {
                 eggs.forEach((egg, idx) => {
                     if (!egg.active) return;
                     const dist = Math.hypot(pointer.x - egg.x, pointer.y - egg.y);
-                    if (dist < egg.radius * 1.8) {
+                    if (dist < egg.radius * 2.0) { // Area sentuh diperbesar agar mudah di HP
                         draggedItem = { type: 'egg', index: idx };
                         activeEggIdx = idx;
                         idleTimer = IDLE_TIMER_MAX;
@@ -965,69 +834,53 @@
             const bombText = document.getElementById('bomb-timer-text');
             const bombLabel = document.getElementById('bomb-status-label');
 
-            // LOGIKA TIMER GANDA
             if (activeEggIdx !== -1 && eggs[activeEggIdx] && eggs[activeEggIdx].active) {
-                // Bintang sedang Dipegang (15 Detik)
                 const currentEgg = eggs[activeEggIdx];
                 currentEgg.timer -= dt;
 
                 const currentSec = Math.floor(currentEgg.timer);
-                if (currentSec !== lastTimerSec && currentSec <= 5 && currentSec >= 0) {
-                    audio.playTick();
-                }
+                if (currentSec !== lastTimerSec && currentSec <= 5 && currentSec >= 0) audio.playTick();
                 lastTimerSec = currentSec;
 
                 if (bombBanner) {
-                    if (bombLabel) bombLabel.innerText = "ANALISIS KASUS KELAS 12";
+                    if (bombLabel) bombLabel.innerText = "ANALISIS KASUS";
                     if (bombText) bombText.innerText = `${Math.max(0, currentEgg.timer).toFixed(1)}s`;
                 }
 
                 if (currentEgg.timer <= 0) {
                     currentEgg.active = false;
-                    hp -= 15;
-                    streak = 0; // Reset streak
-                    audio.playExplosion();
-                    triggerScreenShake();
-                    spawnBurst(currentEgg.x, currentEgg.y, '#EF4444', 35);
-                    addFloatText(`⏱️ WAKTU BINTANG HABIS! (-15% HP)`, currentEgg.x, currentEgg.y - 30, '#DC2626');
+                    hp -= 15; streak = 0;
+                    audio.playExplosion(); triggerScreenShake();
+                    spawnBurst(currentEgg.x, currentEgg.y, '#EF4444', 25);
+                    addFloatText(`⏱️ WAKTU HABIS! (-15% HP)`, currentEgg.x, currentEgg.y - 20, '#DC2626');
                     
-                    draggedItem = null;
-                    activeEggIdx = -1;
-                    idleTimer = IDLE_TIMER_MAX;
+                    draggedItem = null; activeEggIdx = -1; idleTimer = IDLE_TIMER_MAX;
                     updateHUD();
 
-                    if (eggs.every(e => !e.active)) {
-                        setTimeout(() => endGame(hp > 0), 600);
-                    }
+                    if (eggs.every(e => !e.active)) setTimeout(() => endGame(hp > 0), 500);
                 }
             } else {
-                // Siswa Diam Saja (Inaktivitas 10 Detik)
                 idleTimer -= dt;
                 const currentSec = Math.floor(idleTimer);
-                if (currentSec !== lastTimerSec && currentSec <= 3 && currentSec >= 0) {
-                    audio.playTick();
-                }
+                if (currentSec !== lastTimerSec && currentSec <= 3 && currentSec >= 0) audio.playTick();
                 lastTimerSec = currentSec;
 
                 if (bombBanner) {
-                    if (bombLabel) bombLabel.innerText = "SEGERA PILIH BINTANG";
+                    if (bombLabel) bombLabel.innerText = "PILIH BINTANG";
                     if (bombText) bombText.innerText = `${Math.max(0, idleTimer).toFixed(1)}s`;
                 }
 
                 if (idleTimer <= 0) {
-                    hp -= 10;
-                    streak = 0; // Reset streak
-                    audio.playExplosion();
-                    triggerScreenShake();
-                    spawnBurst(width / 2, height / 2, '#EF4444', 30);
-                    addFloatText(`💣 LALAI MEMILIH BINTANG! (-10% HP)`, width / 2, height / 2 - 30, '#DC2626');
+                    hp -= 10; streak = 0;
+                    audio.playExplosion(); triggerScreenShake();
+                    spawnBurst(width / 2, height / 2, '#EF4444', 25);
+                    addFloatText(`💣 LALAI PILIH BINTANG! (-10% HP)`, width / 2, height / 2 - 20, '#DC2626');
 
                     idleTimer = IDLE_TIMER_MAX;
                     updateHUD();
                 }
             }
 
-            // Event Lepas Drag
             if (!pointer.isDown && draggedItem) {
                 if (draggedItem.type === 'egg') {
                     const eggIdx = draggedItem.index;
@@ -1037,41 +890,30 @@
                         const dist = Math.hypot(egg.x - cloud.x, egg.y - cloud.y);
                         if (dist < cloud.radius * 1.5) {
                             if (egg.scenario.sila === cloud.id) {
-                                egg.active = false;
-                                score += 1; // HANYA MENGHITUNG JUMLAH BENAR
-                                streak++;
-                                casesSolved++;
-
+                                egg.active = false; score += 1; streak++; casesSolved++;
                                 triggerStreakBanner(streak);
-                                spawnBurst(cloud.x, cloud.y, cloud.color, 35);
-                                addFloatText(`+1 BENAR!`, cloud.x, cloud.y - 40, '#10B981');
+                                spawnBurst(cloud.x, cloud.y, cloud.color, 25);
+                                addFloatText(`+1 BENAR!`, cloud.x, cloud.y - 30, '#10B981');
                                 audio.playCorrect();
 
-                                if (eggs.every(e => !e.active)) {
-                                    setTimeout(() => endGame(true), 600);
-                                }
+                                if (eggs.every(e => !e.active)) setTimeout(() => endGame(true), 500);
                             } else {
-                                hp -= 10;
-                                streak = 0; // Reset streak
-                                spawnBurst(cloud.x, cloud.y, '#EF4444', 20);
-                                addFloatText(`SALAH ANALISIS! (-10% HP)`, cloud.x, cloud.y - 40, '#EF4444');
-                                audio.playError();
-                                triggerScreenShake(0.2);
+                                hp -= 10; streak = 0;
+                                spawnBurst(cloud.x, cloud.y, '#EF4444', 15);
+                                addFloatText(`SALAH! (-10% HP)`, cloud.x, cloud.y - 30, '#EF4444');
+                                audio.playError(); triggerScreenShake(0.15);
                             }
                             updateHUD();
                         }
                     });
                 }
-                draggedItem = null;
-                activeEggIdx = -1;
-                idleTimer = IDLE_TIMER_MAX;
+                draggedItem = null; activeEggIdx = -1; idleTimer = IDLE_TIMER_MAX;
             }
 
             if (pointer.isDown && draggedItem) {
                 if (draggedItem.type === 'egg') {
                     const egg = eggs[draggedItem.index];
-                    egg.x = pointer.x;
-                    egg.y = pointer.y;
+                    egg.x = pointer.x; egg.y = pointer.y;
                 }
             }
 
@@ -1080,28 +922,21 @@
                 egg.pulse += dt * 3;
 
                 if (!pointer.isDown || draggedItem?.index !== idx) {
-                    egg.x += egg.vx * dt;
-                    egg.y += egg.vy * dt;
-
+                    egg.x += egg.vx * dt; egg.y += egg.vy * dt;
                     if (egg.x < egg.radius) { egg.x = egg.radius; egg.vx *= -1; }
                     if (egg.x > width - egg.radius) { egg.x = width - egg.radius; egg.vx *= -1; }
-                    if (egg.y < egg.radius + 60) { egg.y = egg.radius + 60; egg.vy *= -1; }
-                    if (egg.y > height - 125) { egg.y = height - 125; egg.vy *= -1; }
+                    if (egg.y < egg.radius + 50) { egg.y = egg.radius + 50; egg.vy *= -1; }
+                    if (egg.y > height - 100) { egg.y = height - 100; egg.vy *= -1; }
                 }
             });
 
-            // LOGIKA JATUH KEMBANG API & CONFETTI (GRAVITASI FISIKA LENGKAP)
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
                 p.vx *= p.drag || 0.98;
                 p.vy *= p.drag || 0.98;
-                if (p.gravity) p.vy += p.gravity * dt; // Gravitasi menarik jatuh
-
-                p.x += p.vx * dt;
-                p.y += p.vy * dt;
-                p.life -= dt;
-
-                if (p.life <= 0 || p.y > height + 50) particles.splice(i, 1);
+                if (p.gravity) p.vy += p.gravity * dt;
+                p.x += p.vx * dt; p.y += p.vy * dt; p.life -= dt;
+                if (p.life <= 0 || p.y > height + 20) particles.splice(i, 1);
             }
 
             for (let i = floatTexts.length - 1; i >= 0; i--) {
@@ -1110,21 +945,12 @@
                 if (ft.life <= 0) floatTexts.splice(i, 1);
             }
 
-            // Update Animasi Notifikasi Pop-up Streak (Lebih Halus & Perlahan)
             for (let i = streakPopups.length - 1; i >= 0; i--) {
                 const sp = streakPopups[i];
                 sp.life -= dt;
-
-                // Animasi Pembesaran Latar Perlahan (Smooth Interpolation)
-                if (sp.scale < sp.targetScale) {
-                    sp.scale += (sp.targetScale - sp.scale) * 6 * dt;
-                } else {
-                    sp.scale = sp.targetScale + Math.sin(sp.life * 4) * 0.02; // Pulsating Halus
-                }
-
-                if (sp.life < 0.8) {
-                    sp.opacity = sp.life / 0.8;
-                }
+                if (sp.scale < sp.targetScale) sp.scale += (sp.targetScale - sp.scale) * 6 * dt;
+                else sp.scale = sp.targetScale + Math.sin(sp.life * 4) * 0.02;
+                if (sp.life < 0.6) sp.opacity = sp.life / 0.6;
                 if (sp.life <= 0) streakPopups.splice(i, 1);
             }
         }
@@ -1134,83 +960,62 @@
             ctx.scale(dpr, dpr);
 
             if (screenShakeTime > 0) {
-                const shakeX = (Math.random() - 0.5) * 10;
-                const shakeY = (Math.random() - 0.5) * 10;
-                ctx.translate(shakeX, shakeY);
+                ctx.translate((Math.random() - 0.5) * 6, (Math.random() - 0.5) * 6);
             }
 
             ctx.fillStyle = '#0f172a';
             ctx.fillRect(0, 0, width, height);
 
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-            for (let x = 0; x < width; x += 30) {
-                for (let y = 0; y < height; y += 30) {
-                    ctx.beginPath();
-                    ctx.arc(x, y, 1.5, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-
-            // 1. Keranjang Sila (Target Baskets)
+            // 1. Keranjang Sila
             clouds.forEach((cloud) => {
                 ctx.save();
                 ctx.translate(cloud.x, cloud.y);
 
-                ctx.fillStyle = cloud.color + '33';
-                ctx.beginPath();
-                ctx.roundRect(-cloud.w / 2 - 4, -cloud.h / 2 - 4, cloud.w + 8, cloud.h + 8, 18);
-                ctx.fill();
-
                 ctx.fillStyle = '#1e1b4b';
                 ctx.strokeStyle = cloud.color;
-                ctx.lineWidth = 3;
+                ctx.lineWidth = 2.5;
                 ctx.beginPath();
-                ctx.roundRect(-cloud.w / 2, -cloud.h / 2, cloud.w, cloud.h, 16);
+                ctx.roundRect(-cloud.w / 2, -cloud.h / 2, cloud.w, cloud.h, 12);
                 ctx.fill();
                 ctx.stroke();
 
                 const isMobile = width < 600;
-                const iconSize = isMobile ? 26 : 34;
-                ctx.font = `${iconSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+                ctx.font = `${isMobile ? 22 : 30}px "Segoe UI Emoji", sans-serif`;
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText(cloud.symbol, 0, -cloud.h * 0.18);
 
-                const fontSize = isMobile ? 12 : 14;
-                ctx.font = `bold ${fontSize}px Fredoka, cursive`;
+                ctx.font = `bold ${isMobile ? 10 : 13}px Fredoka, cursive`;
                 ctx.fillStyle = '#FFFFFF';
-                ctx.shadowColor = 'rgba(0,0,0,0.8)';
-                ctx.shadowBlur = 4;
-                ctx.fillText(cloud.name, 0, cloud.h * 0.26);
+                ctx.fillText(cloud.name, 0, cloud.h * 0.28);
 
                 ctx.restore();
             });
 
-            // 2. Bintang Pancasila (Tanpa Angka)
+            // 2. Bintang Bergerak
             eggs.forEach((egg, idx) => {
                 if (!egg.active) return;
 
                 ctx.save();
                 ctx.translate(egg.x, egg.y);
 
-                const scale = 1 + Math.sin(egg.pulse) * 0.06;
+                const scale = 1 + Math.sin(egg.pulse) * 0.05;
                 ctx.scale(scale, scale);
 
                 if (activeEggIdx === idx) {
                     const timerPercent = Math.max(0, egg.timer / egg.maxTimer);
                     ctx.beginPath();
-                    ctx.arc(0, 0, egg.radius * 1.45, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * timerPercent));
+                    ctx.arc(0, 0, egg.radius * 1.4, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * timerPercent));
                     ctx.strokeStyle = timerPercent < 0.3 ? '#EF4444' : '#F59E0B';
-                    ctx.lineWidth = 4;
+                    ctx.lineWidth = 3;
                     ctx.stroke();
                 }
 
                 drawStar(ctx, egg.radius, activeEggIdx === idx);
-
                 ctx.restore();
             });
 
-            // 3. Partikel Animation (Fireworks & Confetti Jatuh)
+            // 3. Partikel
             particles.forEach(p => {
                 ctx.save();
                 ctx.globalAlpha = Math.max(0, Math.min(1, p.life));
@@ -1218,8 +1023,8 @@
 
                 if (p.isConfetti) {
                     ctx.translate(p.x, p.y);
-                    ctx.rotate(p.life * 6);
-                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.6);
+                    ctx.rotate(p.life * 5);
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.5);
                 } else {
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -1232,14 +1037,14 @@
             floatTexts.forEach(ft => {
                 ctx.save();
                 ctx.globalAlpha = Math.max(0, ft.life);
-                ctx.font = 'bold 13px Fredoka, cursive';
+                ctx.font = 'bold 12px Fredoka, cursive';
                 ctx.fillStyle = ft.color;
                 ctx.textAlign = 'center';
                 ctx.fillText(ft.text, ft.x, ft.y);
                 ctx.restore();
             });
 
-            // 5. BANNER POPUP NOTIFIKASI STREAK MEWAH & JELAS
+            // 5. BANNER POPUP NOTIFIKASI STREAK
             streakPopups.forEach(sp => {
                 ctx.save();
                 ctx.globalAlpha = Math.max(0, sp.opacity);
@@ -1247,68 +1052,57 @@
                 ctx.scale(sp.scale, sp.scale);
 
                 const isMobile = width < 600;
-                const popW = isMobile ? Math.min(width - 24, 400) : 520;
-                const popH = isMobile ? 70 : 84;
+                const popW = isMobile ? Math.min(width - 20, 320) : 460;
+                const popH = isMobile ? 54 : 70;
 
-                // Glowing Background Outer Glow
-                ctx.shadowColor = sp.gradStart;
-                ctx.shadowBlur = 45;
-
-                // Background Gradient Card
                 const grad = ctx.createLinearGradient(-popW / 2, 0, popW / 2, 0);
                 grad.addColorStop(0, sp.gradStart);
                 grad.addColorStop(1, sp.gradEnd);
 
                 ctx.fillStyle = 'rgba(15, 23, 42, 0.98)';
                 ctx.strokeStyle = grad;
-                ctx.lineWidth = 4.5;
+                ctx.lineWidth = 3;
 
                 ctx.beginPath();
-                ctx.roundRect(-popW / 2, -popH / 2, popW, popH, 24);
+                ctx.roundRect(-popW / 2, -popH / 2, popW, popH, 16);
                 ctx.fill();
                 ctx.stroke();
 
-                // Judul Utama Notifikasi Streak
-                ctx.font = `800 ${isMobile ? 19 : 25}px Fredoka, cursive`;
+                ctx.font = `800 ${isMobile ? 15 : 20}px Fredoka, cursive`;
                 ctx.fillStyle = '#FFFFFF';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.shadowColor = 'rgba(0,0,0,0.9)';
-                ctx.shadowBlur = 8;
                 ctx.fillText(sp.title, 0, -popH * 0.18);
 
-                // Sub-teks Deskripsi Notifikasi
-                ctx.font = `700 ${isMobile ? 11 : 13}px Plus Jakarta Sans, sans-serif`;
+                ctx.font = `700 ${isMobile ? 9 : 12}px Plus Jakarta Sans, sans-serif`;
                 ctx.fillStyle = '#FEF3C7';
                 ctx.fillText(sp.subText, 0, popH * 0.22);
 
                 ctx.restore();
             });
 
-            // 6. BANNER SOAL HOTS KELAS 12 (POSISI PRESISI DI TENGAH LAYAR & DI DEPAN SEMUA BINTANG)
+            // 6. BANNER SOAL HOTS (PRESISI TEPAT DI TENGAH CANVAS)
             if (activeEggIdx !== -1 && eggs[activeEggIdx] && eggs[activeEggIdx].active) {
                 const activeEgg = eggs[activeEggIdx];
                 ctx.save();
                 
                 const isMobile = width < 600;
-                const fontSize = isMobile ? 12 : 14;
+                const fontSize = isMobile ? 11 : 13;
                 ctx.font = `600 ${fontSize}px Plus Jakarta Sans, sans-serif`;
                 
                 const fullText = activeEgg.scenario.text;
-                const boxW = Math.min(width - 24, 620);
-                const boxH = isMobile ? 125 : 100;
+                const boxW = Math.min(width - 20, 580);
+                const boxH = isMobile ? 115 : 90;
                 
                 const boxX = (width - boxW) / 2;
                 const boxY = (height - boxH) / 2;
 
                 ctx.fillStyle = 'rgba(15, 23, 42, 0.98)';
                 ctx.strokeStyle = '#F59E0B';
-                ctx.lineWidth = 3;
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
-                ctx.shadowBlur = 30;
+                ctx.lineWidth = 2.5;
 
                 ctx.beginPath();
-                ctx.roundRect(boxX, boxY, boxW, boxH, 18);
+                ctx.roundRect(boxX, boxY, boxW, boxH, 14);
                 ctx.fill();
                 ctx.stroke();
 
@@ -1316,7 +1110,7 @@
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
 
-                wrapText(ctx, fullText, boxX + boxW / 2, boxY + boxH / 2, boxW - 32, fontSize * 1.38);
+                wrapText(ctx, fullText, boxX + boxW / 2, boxY + boxH / 2, boxW - 24, fontSize * 1.35);
                 ctx.restore();
             }
 
@@ -1346,15 +1140,13 @@
             const accuracy = Math.round((score / 75) * 100);
 
             document.getElementById('end-title').innerText = victory ? "Kemenangan Kritis!" : "Game Selesai!";
-            document.getElementById('end-subtitle').innerText = victory ? "Kamu menuntaskan seluruh 75 analisis HOTS Pancasila Kelas XII!" : "Tingkatkan lagi analisis kritis Pancasila Kelas XII!";
+            document.getElementById('end-subtitle').innerText = victory ? "Tuntas 75 analisis HOTS Kelas XII!" : "Tingkatkan lagi analisis kritis!";
             document.getElementById('end-icon').innerText = victory ? "🏆" : "🕊️";
             document.getElementById('end-score').innerText = `${score} / 75 Solved`;
             document.getElementById('end-accuracy').innerText = `${accuracy}%`;
 
             const endPlayerInfo = document.getElementById('end-player-info');
-            if (endPlayerInfo) {
-                endPlayerInfo.innerText = `Pemain: ${playerData.nama} (${playerData.kelas})`;
-            }
+            if (endPlayerInfo) endPlayerInfo.innerText = `Pemain: ${playerData.nama} (${playerData.kelas})`;
 
             let rank = "Pengamal Pancasila";
             if (score >= 65) rank = "Begawan Ideologi Bangsa 🌟";
@@ -1384,55 +1176,32 @@
             }
             if (errorEl) errorEl.classList.add('hidden');
 
-            playerData.nama = nama;
-            playerData.kelas = kelas;
-
+            playerData.nama = nama; playerData.kelas = kelas;
             requestFullScreen();
-
-            audio.init();
-            audio.playStart();
-            audio.startBGM();
+            audio.init(); audio.playStart(); audio.startBGM();
             document.getElementById('modal-start').classList.add('hidden');
-            isGameStarted = true;
-            idleTimer = IDLE_TIMER_MAX;
+            isGameStarted = true; idleTimer = IDLE_TIMER_MAX;
         });
 
-        document.getElementById('btn-fullscreen').addEventListener('click', () => {
-            requestFullScreen();
-        });
-
-        document.getElementById('btn-guide').addEventListener('click', () => {
-            audio.init(); audio.playPop();
-            document.getElementById('modal-guide').classList.remove('hidden');
-        });
-        document.getElementById('btn-close-guide').addEventListener('click', () => {
-            audio.init(); audio.playPop();
-            document.getElementById('modal-guide').classList.add('hidden');
-        });
-        document.getElementById('btn-understood').addEventListener('click', () => {
-            audio.init(); audio.playPop();
-            document.getElementById('modal-guide').classList.add('hidden');
-        });
+        document.getElementById('btn-fullscreen').addEventListener('click', () => requestFullScreen());
+        document.getElementById('btn-guide').addEventListener('click', () => { audio.init(); audio.playPop(); document.getElementById('modal-guide').classList.remove('hidden'); });
+        document.getElementById('btn-close-guide').addEventListener('click', () => { audio.init(); audio.playPop(); document.getElementById('modal-guide').classList.add('hidden'); });
+        document.getElementById('btn-understood').addEventListener('click', () => { audio.init(); audio.playPop(); document.getElementById('modal-guide').classList.add('hidden'); });
 
         document.getElementById('btn-sound').addEventListener('click', () => {
-            audio.init();
-            audio.enabled = !audio.enabled;
+            audio.init(); audio.enabled = !audio.enabled;
             const soundIcon = document.getElementById('sound-icon');
             if (audio.enabled) {
-                soundIcon.className = 'fa-solid fa-volume-high text-xs';
+                soundIcon.className = 'fa-solid fa-volume-high text-[10px] md:text-xs';
                 if (isGameStarted && !isGameOver) audio.startBGM();
             } else {
-                soundIcon.className = 'fa-solid fa-volume-xmark text-xs text-red-400';
+                soundIcon.className = 'fa-solid fa-volume-xmark text-[10px] md:text-xs text-red-400';
                 audio.stopBGM();
             }
         });
 
-        document.getElementById('btn-restart-game').addEventListener('click', () => {
-            audio.init(); audio.playPop(); resetGame();
-        });
-        document.getElementById('btn-play-again').addEventListener('click', () => {
-            audio.init(); audio.playPop(); resetGame();
-        });
+        document.getElementById('btn-restart-game').addEventListener('click', () => { audio.init(); audio.playPop(); resetGame(); });
+        document.getElementById('btn-play-again').addEventListener('click', () => { audio.init(); audio.playPop(); resetGame(); });
 
         window.onload = () => {
             populateClassOptions();
@@ -1441,65 +1210,6 @@
             updateHUD();
             requestAnimationFrame(gameLoop);
         };
-    (function protectDevTools() {
-    // 1. Mencegah Klik Kanan (Context Menu)
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    // 2. Mencegah Shortcut Keyboard Umum untuk Inspect Element
-    document.addEventListener('keydown', (e) => {
-        // F12
-        if (e.key === 'F12' || e.keyCode === 123) {
-            e.preventDefault();
-            return false;
-        }
-
-        // Ctrl + Shift + I / J / C / K / S (Windows/Linux) & Cmd + Option + I / J / C (Mac)
-        if (
-            (e.ctrlKey || e.metaKey) && 
-            e.shiftKey && 
-            ['I', 'i', 'J', 'j', 'C', 'c', 'K', 'k', 'S', 's'].includes(e.key)
-        ) {
-            e.preventDefault();
-            return false;
-        }
-
-        // Ctrl + U / Cmd + Option + U (View Source)
-        if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
-            e.preventDefault();
-            return false;
-        }
-    });
-
-    // 3. Pendeteksi Ukuran Jendela (Mendeteksi jika DevTools Terbuka di Samping/Bawah)
-    const threshold = 160;
-    const checkDevToolsSize = () => {
-        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-
-        if (widthThreshold || heightThreshold) {
-            // Aksi jika DevTools terdeteksi terbuka: Blur tampilan atau Reload
-            document.body.innerHTML = `
-                <div style="display:flex; justify-content:center; align-items:center; height:100vh; background:#0f172a; color:#ef4444; font-family:sans-serif; font-weight:bold; font-size:20px; text-align:center; padding:20px;">
-                    ⚠️ Akses Inspeksi Elemen Dibatasi Demi Keamanan Permainan!
-                </div>
-            `;
-        }
-    };
-
-    setInterval(checkDevToolsSize, 1000);
-
-    // 4. Debugger Loop (Membuat DevTools Freeze / Pause jika Dipaksa Buka)
-    setInterval(() => {
-        const startTime = performance.now();
-        debugger;
-        const endTime = performance.now();
-        
-        // Jika jeda debugger lebih besar dari 100ms, menandakan DevTools sedang aktif
-        if (endTime - startTime > 100) {
-            window.location.reload();
-        }
-    }, 500);
-})();
     </script>
 </body>
 </html>
